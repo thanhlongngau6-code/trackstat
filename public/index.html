@@ -6,225 +6,194 @@
 <title>ThlongPremium — Blox Fruit Tracker</title>
 <style>
 :root {
-  --bg:      #070512;
-  --bg2:     #0c0920;
-  --bg3:     #120e2a;
-  --card:    #100d1e;
-  --card-h:  #161229;
-  --bord:    #251b42;
-  --bord-h:  #7c3aed;
-  --pur:     #9333ea;
-  --pur-l:   #a855f7;
-  --pur-d:   #6b21a8;
-  --acc:     #c084fc;
-  --txt:     #e2d9f3;
-  --txt-d:   #9985c5;
-  --txt-m:   #4e4270;
-  --grn:     #4ade80;
-  --red:     #f87171;
-  --yel:     #fbbf24;
-  --blu:     #60a5fa;
-  --teal:    #2dd4bf;
+  --bg:#070512; --bg2:#0c0920; --bg3:#120e2a; --card:#100d1e; --card-h:#161229;
+  --bord:#251b42; --bord-h:#7c3aed; --pur:#9333ea; --pur-l:#a855f7; --pur-d:#6b21a8;
+  --acc:#c084fc; --txt:#e2d9f3; --txt-d:#9985c5; --txt-m:#4e4270;
+  --grn:#4ade80; --red:#f87171; --yel:#fbbf24; --blu:#60a5fa; --teal:#2dd4bf;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
 
-/* ── HEADER ── */
-.hdr {
-  background:linear-gradient(135deg,#0b0620 0%,#110840 100%);
-  border-bottom:1px solid var(--bord);
-  padding:18px 32px;
-  display:flex; align-items:center; justify-content:space-between;
-  position:sticky; top:0; z-index:50;
-}
-.logo { display:flex; align-items:center; gap:12px; }
-.logo-ic {
-  width:42px; height:42px; border-radius:11px;
-  background:linear-gradient(135deg,var(--pur),var(--acc));
-  display:flex; align-items:center; justify-content:center; font-size:22px;
-}
-.logo-t { font-size:19px; font-weight:800; background:linear-gradient(135deg,var(--pur-l),var(--acc)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-.logo-s { font-size:10px; color:var(--txt-m); letter-spacing:2px; text-transform:uppercase; }
-.hdr-r { display:flex; align-items:center; gap:14px; }
-.live-dot { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--txt-m); }
-.dot { width:7px; height:7px; border-radius:50%; background:var(--grn); animation:pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
-.btn { padding:8px 16px; border-radius:8px; border:none; cursor:pointer; font-size:13px; font-weight:600; transition:all .2s; }
-.btn-pur { background:var(--pur); color:#fff; }
-.btn-pur:hover { background:var(--pur-l); transform:translateY(-1px); }
-.btn-ghost { background:transparent; color:var(--txt-d); border:1px solid var(--bord); }
-.btn-ghost:hover { background:var(--bg3); color:var(--txt); }
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#0b0620,#110840);border-bottom:1px solid var(--bord);
+  padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-ic{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--pur),var(--acc));
+  display:flex;align-items:center;justify-content:center;font-size:22px;}
+.logo-t{font-size:19px;font-weight:800;background:linear-gradient(135deg,var(--pur-l),var(--acc));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo-s{font-size:10px;color:var(--txt-m);letter-spacing:2px;text-transform:uppercase;}
+.hdr-r{display:flex;align-items:center;gap:14px;}
+.live-dot{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt-m);}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.btn{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s;}
+.btn-pur{background:var(--pur);color:#fff;}
+.btn-pur:hover{background:var(--pur-l);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--txt-d);border:1px solid var(--bord);}
+.btn-ghost:hover{background:var(--bg3);color:var(--txt);}
 
-/* ── SUMMARY BAR ── */
-.sumbar {
-  background:var(--bg2); border-bottom:1px solid var(--bord);
-  padding:14px 32px; display:flex; gap:40px; overflow-x:auto;
-}
-.si { display:flex; flex-direction:column; gap:2px; white-space:nowrap; }
-.si-l { font-size:10px; color:var(--txt-m); text-transform:uppercase; letter-spacing:1px; }
-.si-v { font-size:22px; font-weight:800; color:var(--acc); }
+/* SUMBAR */
+.sumbar{background:var(--bg2);border-bottom:1px solid var(--bord);padding:14px 32px;display:flex;gap:40px;overflow-x:auto;}
+.si{display:flex;flex-direction:column;gap:2px;white-space:nowrap;}
+.si-l{font-size:10px;color:var(--txt-m);text-transform:uppercase;letter-spacing:1px;}
+.si-v{font-size:22px;font-weight:800;color:var(--acc);}
 
-/* ── MAIN ── */
-.main { padding:26px 32px; }
-.sec-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
-.sec-title { font-size:15px; font-weight:700; }
-.cnt { background:var(--bg3); border:1px solid var(--bord); color:var(--txt-d); padding:3px 12px; border-radius:20px; font-size:12px; }
+/* MAIN */
+.main{padding:26px 32px;}
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.sec-title{font-size:15px;font-weight:700;}
+.cnt{background:var(--bg3);border:1px solid var(--bord);color:var(--txt-d);padding:3px 12px;border-radius:20px;font-size:12px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
 
-/* ── GRID ── */
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(370px,1fr)); gap:18px; }
-
-/* ── CARD ── */
-.card {
-  background:var(--card); border:1px solid var(--bord); border-radius:16px;
-  overflow:hidden; transition:all .25s; position:relative;
-}
-.card:hover { border-color:var(--bord-h); background:var(--card-h); transform:translateY(-2px); box-shadow:0 8px 36px rgba(147,51,234,.18); }
-.card-accent { height:3px; background:linear-gradient(90deg,var(--pur),var(--acc)); }
-
-.card-hdr { padding:15px 16px 10px; display:flex; align-items:flex-start; justify-content:space-between; }
-.ident { display:flex; align-items:flex-start; gap:11px; }
-.av {
-  width:44px; height:44px; flex-shrink:0; border-radius:50%;
+/* CARD */
+.card{background:var(--card);border:1px solid var(--bord);border-radius:16px;overflow:hidden;
+  transition:all .25s;cursor:pointer;}
+.card:hover{border-color:var(--bord-h);background:var(--card-h);transform:translateY(-2px);
+  box-shadow:0 8px 36px rgba(147,51,234,.18);}
+.card-accent{height:3px;background:linear-gradient(90deg,var(--pur),var(--acc));}
+.card-hdr{padding:14px 15px 10px;display:flex;align-items:flex-start;justify-content:space-between;}
+.ident{display:flex;align-items:flex-start;gap:11px;}
+.av{width:42px;height:42px;flex-shrink:0;border-radius:50%;
   background:linear-gradient(135deg,var(--pur-d),var(--pur));
-  display:flex; align-items:center; justify-content:center;
-  font-size:19px; font-weight:800; color:#fff;
-}
-.uname { font-size:15px; font-weight:700; }
-.dname { font-size:11px; color:var(--txt-m); margin-top:1px; }
-.badges { display:flex; gap:5px; flex-wrap:wrap; margin-top:7px; }
-.badge { padding:2px 8px; border-radius:12px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.3px; }
-.b-s1  { background:rgba(74,222,128,.12);  color:#4ade80; border:1px solid rgba(74,222,128,.3); }
-.b-s2  { background:rgba(96,165,250,.12);  color:#60a5fa; border:1px solid rgba(96,165,250,.3); }
-.b-s3  { background:rgba(192,132,252,.12); color:#c084fc; border:1px solid rgba(192,132,252,.3); }
-.b-race{ background:rgba(251,191,36,.1);   color:#fbbf24; border:1px solid rgba(251,191,36,.3); }
-
-.lv-block { display:flex; align-items:flex-end; gap:8px; flex-shrink:0; }
-.lv-num { font-size:30px; font-weight:900; color:var(--acc); line-height:1; }
-.lv-lbl { font-size:9px; color:var(--txt-m); text-transform:uppercase; letter-spacing:1px; margin-bottom:3px; }
-.del-btn { background:transparent; border:none; cursor:pointer; color:var(--txt-m); font-size:14px; padding:4px 6px; border-radius:6px; transition:.2s; }
-.del-btn:hover { background:rgba(248,113,113,.12); color:var(--red); }
+  display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;}
+.uname{font-size:14px;font-weight:700;}
+.dname{font-size:11px;color:var(--txt-m);margin-top:1px;}
+.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;}
+.badge{padding:2px 7px;border-radius:12px;font-size:10px;font-weight:700;text-transform:uppercase;}
+.b-s1{background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
+.b-s2{background:rgba(96,165,250,.12);color:#60a5fa;border:1px solid rgba(96,165,250,.3);}
+.b-s3{background:rgba(192,132,252,.12);color:#c084fc;border:1px solid rgba(192,132,252,.3);}
+.b-race{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
+.lv-block{text-align:right;flex-shrink:0;}
+.lv-num{font-size:28px;font-weight:900;color:var(--acc);line-height:1;}
+.lv-lbl{font-size:9px;color:var(--txt-m);text-transform:uppercase;letter-spacing:1px;}
+.del-btn{background:transparent;border:none;cursor:pointer;color:var(--txt-m);font-size:13px;
+  padding:3px 6px;border-radius:6px;transition:.2s;display:block;margin-bottom:2px;}
+.del-btn:hover{background:rgba(248,113,113,.12);color:var(--red);}
 
 /* level bar */
-.lv-bar-wrap { padding:0 16px 12px; }
-.lv-track { height:4px; background:var(--bg3); border-radius:2px; overflow:hidden; }
-.lv-fill  { height:100%; background:linear-gradient(90deg,var(--pur),var(--acc)); border-radius:2px; transition:width .5s; }
+.lv-bar-wrap{padding:0 15px 10px;}
+.lv-track{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+.lv-fill{height:100%;background:linear-gradient(90deg,var(--pur),var(--acc));border-radius:2px;transition:width .5s;}
 
-/* sections */
-.csec { padding:11px 16px; border-top:1px solid var(--bord); }
-.slbl { font-size:10px; color:var(--txt-m); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+/* card quick info */
+.qrow{padding:10px 15px;border-top:1px solid var(--bord);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.fi{font-size:16px;}
+.fn{font-size:13px;font-weight:600;}
+.fn-none{color:var(--txt-m);font-style:italic;}
+.cur-mini{display:flex;gap:12px;padding:10px 15px;border-top:1px solid var(--bord);}
+.cm{display:flex;flex-direction:column;}
+.cm-v{font-size:13px;font-weight:700;}
+.cm-l{font-size:10px;color:var(--txt-m);}
+.tap-hint{padding:8px 15px;border-top:1px solid var(--bord);font-size:11px;color:var(--txt-m);
+  display:flex;align-items:center;gap:5px;}
+.online-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--grn);
+  margin-left:4px;vertical-align:middle;animation:pulse 2s infinite;}
 
-/* fruit */
-.fruit-row { display:flex; align-items:center; gap:9px; }
-.fi { font-size:20px; }
-.fn { font-size:14px; font-weight:600; }
-.fn-none { color:var(--txt-m); font-style:italic; }
+/* EMPTY / LOADER */
+.empty{text-align:center;padding:80px 20px;color:var(--txt-m);}
+.empty-ic{font-size:52px;margin-bottom:14px;opacity:.4;}
+.empty-t{font-size:18px;color:var(--txt-d);margin-bottom:6px;}
+.loader{text-align:center;padding:60px;color:var(--txt-m);}
+.spin{width:30px;height:30px;border:3px solid var(--bg3);border-top-color:var(--pur);border-radius:50%;
+  animation:spin .8s linear infinite;margin:0 auto 14px;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
-/* stat bars */
-.sbar-list { display:flex; flex-direction:column; gap:5px; }
-.srow { display:grid; grid-template-columns:68px 1fr 44px; align-items:center; gap:8px; }
-.sn { font-size:10px; color:var(--txt-m); text-transform:uppercase; }
-.track { height:6px; background:var(--bg3); border-radius:3px; overflow:hidden; }
-.fill { height:100%; border-radius:3px; transition:width .5s; }
-.f-mel { background:linear-gradient(90deg,#f87171,#fca5a5); }
-.f-def { background:linear-gradient(90deg,#60a5fa,#93c5fd); }
-.f-swd { background:linear-gradient(90deg,#4ade80,#86efac); }
-.f-gun { background:linear-gradient(90deg,#fbbf24,#fde68a); }
-.f-fru { background:linear-gradient(90deg,#c084fc,#e9d5ff); }
-.sv { font-size:11px; color:var(--txt-d); text-align:right; font-variant-numeric:tabular-nums; }
-.stat-total { font-size:10px; color:var(--txt-m); margin-bottom:6px; }
+/* DETAIL MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(7,5,18,.9);z-index:200;
+  align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+.overlay.open{display:flex;}
+.detail{background:var(--card);border:1px solid var(--bord);border-radius:18px;
+  width:100%;max-width:560px;overflow:hidden;margin:auto;}
+.detail-hdr{background:linear-gradient(135deg,#0f0a28,#1a0f3a);padding:20px;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.detail-ident{display:flex;align-items:center;gap:12px;}
+.detail-av{width:52px;height:52px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--pur-d),var(--pur));
+  display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;}
+.detail-uname{font-size:17px;font-weight:800;}
+.detail-sub{font-size:12px;color:var(--txt-m);margin-top:2px;}
+.detail-lv{text-align:right;flex-shrink:0;}
+.detail-lv-num{font-size:36px;font-weight:900;color:var(--acc);line-height:1;}
+.detail-lv-lbl{font-size:10px;color:var(--txt-m);text-transform:uppercase;}
+.close-btn{background:var(--bg3);border:none;color:var(--txt-d);width:32px;height:32px;
+  border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:.2s;}
+.close-btn:hover{background:var(--bord);color:var(--txt);}
+
+/* detail sections */
+.dsec{padding:14px 18px;border-top:1px solid var(--bord);}
+.dsec-t{font-size:10px;color:var(--txt-m);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+
+/* stat bars (detail) */
+.srow{display:grid;grid-template-columns:72px 1fr 48px;align-items:center;gap:8px;margin-bottom:5px;}
+.sn{font-size:10px;color:var(--txt-m);text-transform:uppercase;}
+.track{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;}
+.fill{height:100%;border-radius:3px;transition:width .5s;}
+.f-mel{background:linear-gradient(90deg,#f87171,#fca5a5);}
+.f-def{background:linear-gradient(90deg,#60a5fa,#93c5fd);}
+.f-swd{background:linear-gradient(90deg,#4ade80,#86efac);}
+.f-gun{background:linear-gradient(90deg,#fbbf24,#fde68a);}
+.f-fru{background:linear-gradient(90deg,#c084fc,#e9d5ff);}
+.sv{font-size:11px;color:var(--txt-d);text-align:right;font-variant-numeric:tabular-nums;}
 
 /* currency */
-.cur-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:7px; }
-.ci { background:var(--bg3); border-radius:8px; padding:8px 10px; text-align:center; }
-.ca { font-size:13px; font-weight:800; }
-.cl { font-size:9px; color:var(--txt-m); text-transform:uppercase; margin-top:2px; }
+.cur-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.ci{background:var(--bg3);border-radius:8px;padding:9px 10px;text-align:center;}
+.ca{font-size:14px;font-weight:800;}
+.cl{font-size:10px;color:var(--txt-m);text-transform:uppercase;margin-top:2px;}
 
-/* card footer */
-.cftr { padding:9px 16px; border-top:1px solid var(--bord); display:flex; align-items:center; justify-content:space-between; }
-.upd { font-size:11px; color:var(--txt-m); }
-.raw-toggle { background:none; border:none; color:var(--pur-l); font-size:11px; cursor:pointer; text-decoration:underline; }
-.raw-panel { display:none; padding:10px 16px; background:var(--bg); border-top:1px solid var(--bord); max-height:180px; overflow-y:auto; }
-.raw-panel.open { display:block; }
-.raw-panel pre { font-size:9px; color:var(--txt-m); font-family:'Courier New',monospace; white-space:pre-wrap; word-break:break-all; }
+/* raw data grid */
+.raw-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.raw-row{background:var(--bg3);border-radius:7px;padding:7px 10px;display:flex;
+  flex-direction:column;gap:2px;}
+.raw-key{font-size:10px;color:var(--txt-m);text-transform:uppercase;letter-spacing:.3px;}
+.raw-val{font-size:12px;font-weight:600;word-break:break-all;}
 
-/* online indicator */
-.online-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--grn); margin-left:5px; vertical-align:middle; animation:pulse 2s infinite; }
+/* DELETE MODAL */
+.dmodal{background:var(--card);border:1px solid var(--bord);border-radius:16px;
+  padding:24px;width:380px;max-width:92vw;margin:auto;}
+.dmodal-t{font-size:16px;font-weight:800;margin-bottom:10px;}
+.dmodal-sub{font-size:13px;color:var(--txt-d);margin-bottom:14px;line-height:1.5;}
+.dmodal input{width:100%;background:var(--bg);border:1px solid var(--bord);border-radius:8px;
+  padding:10px 14px;color:var(--txt);font-size:14px;margin-bottom:14px;outline:none;}
+.dmodal input:focus{border-color:var(--pur);}
+.dmodal-btns{display:flex;gap:10px;justify-content:flex-end;}
+.btn-danger{background:#dc2626;color:#fff;}
+.btn-danger:hover{background:#ef4444;}
 
-/* ── EMPTY ── */
-.empty { text-align:center; padding:80px 20px; color:var(--txt-m); }
-.empty-ic { font-size:52px; margin-bottom:14px; opacity:.4; }
-.empty-t { font-size:18px; color:var(--txt-d); margin-bottom:6px; }
+/* TOAST */
+.toast{position:fixed;bottom:22px;right:22px;background:var(--bg3);border:1px solid var(--bord);
+  border-left:3px solid var(--pur);border-radius:10px;padding:11px 18px;font-size:13px;color:var(--txt);
+  opacity:0;transform:translateX(14px);transition:all .3s;z-index:400;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(0);}
 
-/* ── LOADING ── */
-.loader { text-align:center; padding:60px; color:var(--txt-m); }
-.spin { width:30px; height:30px; border:3px solid var(--bg3); border-top-color:var(--pur); border-radius:50%; animation:spin .8s linear infinite; margin:0 auto 14px; }
-@keyframes spin { to { transform:rotate(360deg); } }
-
-/* ── MODAL ── */
-.overlay { display:none; position:fixed; inset:0; background:rgba(7,5,18,.88); z-index:200; align-items:center; justify-content:center; }
-.overlay.open { display:flex; }
-.modal { background:var(--card); border:1px solid var(--bord); border-radius:16px; padding:26px; width:420px; max-width:92vw; }
-.modal-lg { width:640px; max-height:88vh; overflow-y:auto; }
-.modal-t { font-size:17px; font-weight:800; margin-bottom:14px; }
-.modal-sub { font-size:13px; color:var(--txt-d); margin-bottom:14px; line-height:1.5; }
-.modal input {
-  width:100%; background:var(--bg); border:1px solid var(--bord);
-  border-radius:8px; padding:10px 14px; color:var(--txt); font-size:14px;
-  margin-bottom:14px; outline:none;
-}
-.modal input:focus { border-color:var(--pur); }
-.modal-btns { display:flex; gap:10px; justify-content:flex-end; }
-.btn-danger { background:#dc2626; color:#fff; }
-.btn-danger:hover { background:#ef4444; }
-
-/* script display */
-.script-box {
-  background:var(--bg); border:1px solid var(--bord); border-radius:8px;
-  padding:14px; font-family:'Courier New',monospace; font-size:11px;
-  color:var(--txt-d); max-height:320px; overflow-y:auto;
-  white-space:pre; margin-bottom:14px; line-height:1.5;
-}
-
-/* ── TOAST ── */
-.toast {
-  position:fixed; bottom:22px; right:22px;
-  background:var(--bg3); border:1px solid var(--bord); border-left:3px solid var(--pur);
-  border-radius:10px; padding:11px 18px; font-size:13px; color:var(--txt);
-  opacity:0; transform:translateX(14px); transition:all .3s; z-index:300; pointer-events:none;
-}
-.toast.show { opacity:1; transform:translateX(0); }
-
-/* ── RESPONSIVE ── */
-@media(max-width:640px) {
-  .hdr,.sumbar,.main { padding-left:14px; padding-right:14px; }
-  .grid { grid-template-columns:1fr; }
-  .sumbar { gap:20px; flex-wrap:wrap; }
-  .hdr { flex-wrap:wrap; gap:10px; }
+@media(max-width:640px){
+  .hdr,.sumbar,.main{padding-left:14px;padding-right:14px;}
+  .grid{grid-template-columns:1fr;}
+  .sumbar{gap:20px;flex-wrap:wrap;}
+  .hdr{flex-wrap:wrap;gap:10px;}
+  .raw-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="hdr">
   <div class="logo">
     <div class="logo-ic">🍎</div>
     <div>
       <div class="logo-t">ThlongPremium</div>
-      <div class="logo-s">Blox Fruit Stat Tracker</div>
+      <div class="logo-s">Blox Fruit Tracker</div>
     </div>
   </div>
   <div class="hdr-r">
-    <div class="live-dot">
-      <div class="dot"></div>
-      <span id="lastSync">Đang tải...</span>
-    </div>
-    <button class="btn btn-ghost" onclick="openScript()">📋 Script</button>
+    <div class="live-dot"><div class="dot"></div><span id="lastSync">Đang tải...</span></div>
     <button class="btn btn-pur" onclick="load()">↻ Refresh</button>
   </div>
 </header>
 
-<!-- SUMMARY BAR -->
 <div class="sumbar">
   <div class="si"><div class="si-l">Tổng ACC</div><div class="si-v" id="s-total">0</div></div>
   <div class="si"><div class="si-l">Online</div><div class="si-v" id="s-online" style="color:var(--grn)">0</div></div>
@@ -233,418 +202,273 @@ body { background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,
   <div class="si"><div class="si-l">Tổng Fragment</div><div class="si-v" id="s-frag" style="color:var(--acc)">0</div></div>
 </div>
 
-<!-- MAIN -->
 <main class="main">
   <div class="sec-hdr">
     <div class="sec-title">Accounts</div>
     <span class="cnt" id="cnt-lbl">0 acc</span>
   </div>
-  <div id="container">
-    <div class="loader"><div class="spin"></div>Đang tải dữ liệu...</div>
-  </div>
+  <div id="container"><div class="loader"><div class="spin"></div>Đang tải dữ liệu...</div></div>
 </main>
+
+<!-- DETAIL MODAL -->
+<div class="overlay" id="detail-modal" onclick="if(event.target===this)closeDetail()">
+  <div class="detail" id="detail-content"></div>
+</div>
 
 <!-- DELETE MODAL -->
 <div class="overlay" id="del-modal">
-  <div class="modal">
-    <div class="modal-t">🗑️ Xóa Account</div>
-    <div class="modal-sub">Nhập API Secret để xóa <strong id="del-name" style="color:var(--acc)"></strong>. Hành động này không thể hoàn tác.</div>
+  <div class="dmodal">
+    <div class="dmodal-t">🗑️ Xóa Account</div>
+    <div class="dmodal-sub">Nhập API Secret để xóa <strong id="del-name" style="color:var(--acc)"></strong>.</div>
     <input type="password" id="del-key" placeholder="API Secret (mặc định: ThlongPremium2024)" />
-    <div class="modal-btns">
+    <div class="dmodal-btns">
       <button class="btn btn-ghost" onclick="closeDel()">Hủy</button>
       <button class="btn btn-danger" onclick="doDelete()">Xóa</button>
     </div>
   </div>
 </div>
 
-<!-- SCRIPT MODAL -->
-<div class="overlay" id="script-modal" onclick="if(event.target===this)closeScript()">
-  <div class="modal modal-lg">
-    <div class="modal-t">📋 Lua Script — tracker.lua</div>
-    <div class="modal-sub">
-      Chạy trong executor (Synapse X / Delta / Fluxus / Krnl).<br>
-      Đổi <code style="color:var(--acc);background:var(--bg3);padding:1px 5px;border-radius:4px">YOUR_APP</code> thành URL Vercel app của bạn.<br>
-      Đổi <code style="color:var(--acc);background:var(--bg3);padding:1px 5px;border-radius:4px">API_SECRET</code> nếu bạn đã đặt biến môi trường riêng trên Vercel.
-    </div>
-    <div class="script-box" id="script-box"></div>
-    <div class="modal-btns">
-      <button class="btn btn-ghost" onclick="closeScript()">Đóng</button>
-      <button class="btn btn-pur" onclick="copyScript()">📋 Copy Script</button>
-    </div>
-  </div>
-</div>
-
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ── Constants ─────────────────────────────────────
-const SEA = { 1:"🌊 First Sea", 2:"🌏 Second Sea", 3:"⚓ Third Sea" };
-const SEA_CLS = { 1:"b-s1", 2:"b-s2", 3:"b-s3" };
-const MAX_LV = 2550;
-
+const MAX_LV = 2800;
+const SEA = {1:"🌊 First Sea",2:"🌏 Second Sea",3:"⚓ Third Sea"};
+const SEA_CLS = {1:"b-s1",2:"b-s2",3:"b-s3"};
 const FRUIT_MAP = {
-  smoke:"💨", spike:"🌵", flame:"🔥", falcon:"🦅", ice:"🧊", sand:"🏜️",
-  dark:"🌑", revive:"💚", diamond:"💎", light:"✨", rubber:"🏐", barrier:"🛡️",
-  magma:"🌋", quake:"💥", buddha:"🧘", string:"🕸️", phoenix:"🔴",
-  rumble:"⚡", paw:"🐾", gravity:"🌀", mammoth:"🦣", "t-rex":"🦖",
-  spirit:"👻", leopard:"🐆", kitsune:"🦊", venom:"☠️", control:"🎮",
-  portal:"🔮", shadow:"🌙", blizzard:"❄️", dragon:"🐉", soul:"💫",
-  dough:"🫓", bomb:"💣", rocket:"🚀", human:"👊", love:"❤️",
-  bird:"🦤", spring:"🌀", chop:"🔪", spin:"🌪️", swim:"🐟",
+  smoke:"💨",spike:"🌵",flame:"🔥",falcon:"🦅",ice:"🧊",sand:"🏜️",dark:"🌑",revive:"💚",
+  diamond:"💎",light:"✨",rubber:"🏐",barrier:"🛡️",magma:"🌋",quake:"💥",buddha:"🧘",
+  string:"🕸️",phoenix:"🔴",rumble:"⚡",paw:"🐾",gravity:"🌀",mammoth:"🦣","t-rex":"🦖",
+  spirit:"👻",leopard:"🐆",kitsune:"🦊",venom:"☠️",control:"🎮",portal:"🔮",shadow:"🌙",
+  blizzard:"❄️",dragon:"🐉",soul:"💫",dough:"🫓",bomb:"💣",rocket:"🚀",human:"👊",love:"❤️",
+  bird:"🦤",spring:"🌀",chop:"🔪",spin:"🌪️",swim:"🐟",
 };
 
-function fruitIcon(name) {
-  if (!name || name === "None") return "❌";
-  const n = name.toLowerCase();
-  for (const [k, v] of Object.entries(FRUIT_MAP)) if (n.includes(k)) return v;
-  return "🍎";
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const fmt = n => { n=Number(n)||0; if(n>=1e9)return(n/1e9).toFixed(1)+"B"; if(n>=1e6)return(n/1e6).toFixed(1)+"M"; if(n>=1e3)return(n/1e3).toFixed(1)+"K"; return n.toLocaleString("vi-VN"); };
+const ago = iso => { if(!iso)return"Chưa sync"; const m=Math.floor((Date.now()-new Date(iso))/60000); if(m<1)return"vừa xong"; if(m<60)return m+" phút trước"; const h=Math.floor(m/60); if(h<24)return h+" giờ trước"; return Math.floor(h/24)+" ngày trước"; };
+const isOnline = iso => iso && (Date.now()-new Date(iso)) < 3*60*1000;
+const fi = name => { if(!name||name==="None")return"❌"; const n=name.toLowerCase(); for(const[k,v]of Object.entries(FRUIT_MAP))if(n.includes(k))return v; return"🍎"; };
+
+const g  = (obj,...keys) => { for(const k of keys){const v=obj[k]; if(v!==undefined&&v!==null)return Number(v)||0;} return 0; };
+const gs = (obj,...keys) => { for(const k of keys){const v=obj[k]; if(v!==undefined&&v!==null&&v!=="")return String(v);} return""; };
+
+// level từ nhiều nguồn, ưu tiên giá trị > 1
+function getLevel(acc) {
+  const candidates = [
+    g(acc,"level","Level"),
+    g(acc.raw_dump||{},"Level","Lvl"),
+  ].filter(v=>v>0);
+  return candidates.length ? Math.max(...candidates) : 0;
 }
 
-const fmt = n => {
-  n = Number(n) || 0;
-  if (n >= 1e9) return (n/1e9).toFixed(1)+"B";
-  if (n >= 1e6) return (n/1e6).toFixed(1)+"M";
-  if (n >= 1e3) return (n/1e3).toFixed(1)+"K";
-  return n.toLocaleString("vi-VN");
-};
+let allAccounts = [];
+let _delKey = null;
 
-const esc = s => String(s)
-  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-
-const ago = iso => {
-  if (!iso) return "Chưa sync";
-  const m = Math.floor((Date.now() - new Date(iso)) / 60000);
-  if (m < 1)  return "vừa xong";
-  if (m < 60) return m + " phút trước";
-  const h = Math.floor(m/60);
-  if (h < 24) return h + " giờ trước";
-  return Math.floor(h/24) + " ngày trước";
-};
-
-const online = iso => iso && (Date.now() - new Date(iso)) < 3 * 60 * 1000;
-
-// ── Data helpers ──────────────────────────────────
-const g = (obj, ...keys) => {
-  for (const k of keys) { const v = obj[k]; if (v !== undefined && v !== null) return v; }
-  return 0;
-};
-const gs = (obj, ...keys) => {
-  for (const k of keys) { const v = obj[k]; if (v !== undefined && v !== null) return String(v); }
-  return "";
-};
-
-// ── Card renderer ─────────────────────────────────
+// ── CARD ──
 function card(acc) {
-  const user  = esc(gs(acc,"username","Username") || "???");
-  const dname = esc(gs(acc,"display_name","displayName") || user);
-  const uid   = gs(acc,"user_id","userId") || "";
-  const lv    = g(acc,"level","Level");
-  const sea   = g(acc,"sea","Sea") || 1;
-  const race  = esc(gs(acc,"race","Race") || "Human");
-  const fruit = gs(acc,"devil_fruit","DevilFruit","FruitName") || "None";
+  const user  = esc(gs(acc,"username","Username")||"???");
+  const lv    = getLevel(acc);
+  const sea   = g(acc,"sea","Sea")||1;
+  const race  = esc(gs(acc,"race","Race")||"Human");
+  const fruit = gs(acc,"devil_fruit","DevilFruit","FruitName")||"None";
   const beli  = g(acc,"beli","Beli");
   const frag  = g(acc,"fragments","Fragments");
   const bnty  = g(acc,"bounty","Bounty");
   const honor = g(acc,"honor","Honor");
-  const isOn  = online(acc.last_updated);
-  const key   = esc(acc.account_key || user);
-
-  const stats = {
-    MELEE:   g(acc,"stat_melee","Melee","stat_Melee"),
-    DEFENSE: g(acc,"stat_defense","Defense","stat_Defense"),
-    SWORD:   g(acc,"stat_sword","Sword","stat_Sword"),
-    GUN:     g(acc,"stat_gun","Gun","stat_Gun"),
-    FRUIT:   g(acc,"stat_fruit","Fruit","stat_Fruit"),
-  };
-  const totalSt = Object.values(stats).reduce((a,b)=>a+b,0) || 1;
-  const statCls = { MELEE:"f-mel", DEFENSE:"f-def", SWORD:"f-swd", GUN:"f-gun", FRUIT:"f-fru" };
-
-  const statRows = Object.entries(stats).map(([n,v])=>`
-    <div class="srow">
-      <span class="sn">${n}</span>
-      <div class="track"><div class="fill ${statCls[n]}" style="width:${Math.round(v/totalSt*100)}%"></div></div>
-      <span class="sv">${v}</span>
-    </div>`).join("");
-
-  const raw = acc.raw_dump || {};
-  const rawStr = JSON.stringify(raw, null, 2);
-  const hasRaw = Object.keys(raw).length > 0;
-
-  const lvPct = Math.min((lv / MAX_LV)*100, 100).toFixed(1);
-  const seaLabel = SEA[sea] || ("Sea "+sea);
-  const seaCls   = SEA_CLS[sea] || "b-s1";
-  const currency3rd = sea >= 3;
+  const key   = esc(acc.account_key||user);
+  const on    = isOnline(acc.last_updated);
+  const lvPct = Math.min((lv/MAX_LV)*100,100).toFixed(1);
+  const currency3rd = sea>=3;
 
   return `
-<div class="card" id="c-${key}">
+<div class="card" onclick="openDetail('${key}')">
   <div class="card-accent"></div>
   <div class="card-hdr">
     <div class="ident">
       <div class="av">${user.charAt(0).toUpperCase()}</div>
       <div>
-        <div class="uname">${user}${isOn ? '<span class="online-dot"></span>' : ""}</div>
-        ${dname !== user ? `<div class="dname">${dname}</div>` : ""}
+        <div class="uname">${user}${on?'<span class="online-dot"></span>':""}</div>
         <div class="badges">
-          <span class="badge ${seaCls}">${seaLabel}</span>
+          <span class="badge ${SEA_CLS[sea]||"b-s1"}">${SEA[sea]||"Sea "+sea}</span>
           <span class="badge b-race">👤 ${race}</span>
         </div>
       </div>
     </div>
     <div class="lv-block">
-      <button class="del-btn" title="Xóa" onclick="openDel('${key}','${user}')">🗑️</button>
-      <div>
-        <div class="lv-num">${lv}</div>
-        <div class="lv-lbl">LEVEL</div>
-      </div>
+      <button class="del-btn" onclick="event.stopPropagation();openDel('${key}','${user}')">🗑️</button>
+      <div class="lv-num">${lv}</div>
+      <div class="lv-lbl">LEVEL</div>
     </div>
   </div>
-
   <div class="lv-bar-wrap">
-    <div title="${lv}/${MAX_LV} (${lvPct}%)">
-      <div class="lv-track"><div class="lv-fill" style="width:${lvPct}%"></div></div>
+    <div class="lv-track" title="${lv}/${MAX_LV}">
+      <div class="lv-fill" style="width:${lvPct}%"></div>
     </div>
   </div>
-
-  <div class="csec">
-    <div class="slbl">🍎 Devil Fruit</div>
-    <div class="fruit-row">
-      <span class="fi">${fruitIcon(fruit)}</span>
-      <span class="fn${fruit==="None"?" fn-none":""}">${esc(fruit)}</span>
-    </div>
+  <div class="qrow">
+    <span class="fi">${fi(fruit)}</span>
+    <span class="fn${fruit==="None"?" fn-none":""}">${esc(fruit)}</span>
   </div>
-
-  <div class="csec">
-    <div class="slbl">📊 Stat Allocation</div>
-    <div class="stat-total">Tổng: ${totalSt === 1 ? 0 : totalSt} điểm</div>
-    <div class="sbar-list">${statRows}</div>
+  <div class="cur-mini">
+    <div class="cm"><div class="cm-v" style="color:var(--yel)">${fmt(beli)}</div><div class="cm-l">💰 Beli</div></div>
+    <div class="cm"><div class="cm-v" style="color:var(--acc)">${fmt(frag)}</div><div class="cm-l">💜 Fragment</div></div>
+    <div class="cm"><div class="cm-v" style="color:${currency3rd?"var(--blu)":"var(--grn)"}">${fmt(currency3rd?honor:bnty)}</div><div class="cm-l">${currency3rd?"⚔️ Honor":"🏴 Bounty"}</div></div>
   </div>
-
-  <div class="csec">
-    <div class="slbl">💰 Tài Nguyên</div>
-    <div class="cur-grid">
-      <div class="ci"><div class="ca" style="color:var(--yel)">${fmt(beli)}</div><div class="cl">💰 Beli</div></div>
-      <div class="ci"><div class="ca" style="color:var(--acc)">${fmt(frag)}</div><div class="cl">💜 Fragment</div></div>
-      <div class="ci"><div class="ca" style="color:${currency3rd?"var(--blu)":"var(--grn)"}">${fmt(currency3rd?honor:bnty)}</div><div class="cl">${currency3rd?"⚔️ Honor":"🏴 Bounty"}</div></div>
-    </div>
-  </div>
-
-  <div class="cftr">
-    <span class="upd">🕐 ${ago(acc.last_updated)}</span>
-    ${hasRaw ? `<button class="raw-toggle" onclick="toggleRaw(this)">raw data ▾</button>` : ""}
-  </div>
-  ${hasRaw ? `<div class="raw-panel"><pre>${esc(rawStr)}</pre></div>` : ""}
+  <div class="tap-hint">👆 Nhấn để xem chi tiết • 🕐 ${ago(acc.last_updated)}</div>
 </div>`;
 }
 
-// ── Render ────────────────────────────────────────
-function render(accounts) {
-  document.getElementById("cnt-lbl").textContent     = accounts.length + " acc";
-  document.getElementById("s-total").textContent     = accounts.length;
-  document.getElementById("s-online").textContent    = accounts.filter(a=>online(a.last_updated)).length;
-  document.getElementById("s-maxlv").textContent     = accounts.reduce((m,a)=>Math.max(m,g(a,"level","Level")),0);
-  document.getElementById("s-beli").textContent      = fmt(accounts.reduce((s,a)=>s+g(a,"beli","Beli"),0));
-  document.getElementById("s-frag").textContent      = fmt(accounts.reduce((s,a)=>s+g(a,"fragments","Fragments"),0));
+// ── DETAIL MODAL ──
+function openDetail(key) {
+  const acc = allAccounts.find(a=>(a.account_key||"")===key);
+  if(!acc) return;
 
-  const c = document.getElementById("container");
-  if (!accounts.length) {
-    c.innerHTML = `<div class="empty">
-      <div class="empty-ic">🍎</div>
-      <div class="empty-t">Chưa có account nào</div>
-      <p>Chạy Lua script trong game để bắt đầu tracking.</p>
+  const user   = esc(gs(acc,"username","Username")||"???");
+  const dname  = esc(gs(acc,"display_name","displayName")||user);
+  const lv     = getLevel(acc);
+  const sea    = g(acc,"sea","Sea")||1;
+  const race   = esc(gs(acc,"race","Race")||"Human");
+  const fruit  = gs(acc,"devil_fruit","DevilFruit","FruitName")||"None";
+  const beli   = g(acc,"beli","Beli");
+  const frag   = g(acc,"fragments","Fragments");
+  const bnty   = g(acc,"bounty","Bounty");
+  const honor  = g(acc,"honor","Honor");
+  const on     = isOnline(acc.last_updated);
+  const c3rd   = sea>=3;
+  const lvPct  = Math.min((lv/MAX_LV)*100,100).toFixed(1);
+
+  const stats = {
+    MELEE:   g(acc,"stat_melee","Melee"),
+    DEFENSE: g(acc,"stat_defense","Defense"),
+    SWORD:   g(acc,"stat_sword","Sword"),
+    GUN:     g(acc,"stat_gun","Gun"),
+    FRUIT:   g(acc,"stat_fruit","Fruit"),
+  };
+  const totalSt = Object.values(stats).reduce((a,b)=>a+b,0)||1;
+  const stCls = {MELEE:"f-mel",DEFENSE:"f-def",SWORD:"f-swd",GUN:"f-gun",FRUIT:"f-fru"};
+  const statRows = Object.entries(stats).map(([n,v])=>`
+    <div class="srow">
+      <span class="sn">${n}</span>
+      <div class="track"><div class="fill ${stCls[n]}" style="width:${Math.round(v/totalSt*100)}%"></div></div>
+      <span class="sv">${v}</span>
+    </div>`).join("");
+
+  // Raw dump — loại bỏ trùng và field lớn
+  const skip = new Set(["raw_dump","account_key","last_updated","username","display_name",
+    "user_id","level","beli","bounty","honor","fragments","stat_melee","stat_defense",
+    "stat_sword","stat_gun","stat_fruit","race","devil_fruit","sea"]);
+  const raw = acc.raw_dump||{};
+  const entries = Object.entries(raw)
+    .filter(([k,v])=>!skip.has(k)&&typeof v!=="object"&&v!==null&&v!==undefined)
+    .sort((a,b)=>{
+      const ta=typeof a[1],tb=typeof b[1];
+      if(ta===tb)return a[0].localeCompare(b[0]);
+      if(ta==="number")return -1; if(tb==="number")return 1; return 0;
+    });
+
+  const rawRows = entries.map(([k,v])=>{
+    let col="var(--txt)", disp=String(v);
+    if(typeof v==="number"){col="var(--acc)"; disp=Number(v).toLocaleString("vi-VN");}
+    else if(typeof v==="boolean"){col=v?"var(--grn)":"var(--txt-m)"; disp=v?"✅ Có":"❌ Không";}
+    else if(v==="")disp="—";
+    return `<div class="raw-row"><span class="raw-key">${esc(k)}</span><span class="raw-val" style="color:${col}">${esc(disp)}</span></div>`;
+  }).join("");
+
+  document.getElementById("detail-content").innerHTML = `
+    <div class="detail-hdr">
+      <div class="detail-ident">
+        <div class="detail-av">${user.charAt(0).toUpperCase()}</div>
+        <div>
+          <div class="detail-uname">${user}${on?'<span class="online-dot"></span>':""}</div>
+          <div class="detail-sub">${dname!==user?dname+" · ":""}${SEA[sea]||"Sea "+sea} · ${race}</div>
+          <div style="margin-top:6px;font-size:18px">${fi(fruit)} <span style="font-size:13px;font-weight:600">${esc(fruit)}</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+        <button class="close-btn" onclick="closeDetail()">✕</button>
+        <div class="detail-lv"><div class="detail-lv-num">${lv}</div><div class="detail-lv-lbl">LEVEL</div></div>
+      </div>
+    </div>
+
+    <div class="dsec">
+      <div class="dsec-t">📊 Stat Allocation — tổng ${totalSt===1?0:totalSt} điểm</div>
+      ${statRows}
+      <div style="height:6px;background:var(--bg3);border-radius:3px;margin-top:10px;overflow:hidden">
+        <div style="height:100%;width:${lvPct}%;background:linear-gradient(90deg,var(--pur),var(--acc));border-radius:3px"></div>
+      </div>
+      <div style="font-size:10px;color:var(--txt-m);margin-top:4px">Level ${lv} / ${MAX_LV} (${lvPct}%)</div>
+    </div>
+
+    <div class="dsec">
+      <div class="dsec-t">💰 Tài Nguyên</div>
+      <div class="cur-grid">
+        <div class="ci"><div class="ca" style="color:var(--yel)">${fmt(beli)}</div><div class="cl">💰 Beli</div></div>
+        <div class="ci"><div class="ca" style="color:var(--acc)">${fmt(frag)}</div><div class="cl">💜 Fragment</div></div>
+        <div class="ci"><div class="ca" style="color:${c3rd?"var(--blu)":"var(--grn)"}">${fmt(c3rd?honor:bnty)}</div><div class="cl">${c3rd?"⚔️ Honor":"🏴 Bounty"}</div></div>
+      </div>
+    </div>
+
+    ${entries.length>0?`
+    <div class="dsec">
+      <div class="dsec-t">📦 Tất Cả Data (${entries.length} mục)</div>
+      <div class="raw-grid">${rawRows}</div>
+    </div>`:""}
+
+    <div class="dsec" style="font-size:11px;color:var(--txt-m);text-align:center">
+      🕐 Cập nhật: ${ago(acc.last_updated)}
     </div>`;
+
+  document.getElementById("detail-modal").classList.add("open");
+}
+
+function closeDetail() { document.getElementById("detail-modal").classList.remove("open"); }
+
+// ── DELETE ──
+function openDel(key,name){_delKey=key;document.getElementById("del-name").textContent=name;document.getElementById("del-key").value="";document.getElementById("del-modal").classList.add("open");}
+function closeDel(){document.getElementById("del-modal").classList.remove("open");_delKey=null;}
+async function doDelete(){
+  const k=document.getElementById("del-key").value.trim();
+  if(!k){toast("⚠️ Nhập API Secret");return;}
+  try{
+    const r=await fetch("/api/delete",{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({key:k,account_key:_delKey})});
+    if(r.ok){toast("✅ Đã xóa");closeDel();load();}
+    else{const e=await r.json();toast("❌ "+(e.error||"Lỗi"));}
+  }catch{toast("❌ Lỗi kết nối");}
+}
+
+// ── RENDER ──
+function render(accounts){
+  allAccounts=accounts;
+  document.getElementById("cnt-lbl").textContent=accounts.length+" acc";
+  document.getElementById("s-total").textContent=accounts.length;
+  document.getElementById("s-online").textContent=accounts.filter(a=>isOnline(a.last_updated)).length;
+  document.getElementById("s-maxlv").textContent=accounts.reduce((m,a)=>Math.max(m,getLevel(a)),0);
+  document.getElementById("s-beli").textContent=fmt(accounts.reduce((s,a)=>s+g(a,"beli","Beli"),0));
+  document.getElementById("s-frag").textContent=fmt(accounts.reduce((s,a)=>s+g(a,"fragments","Fragments"),0));
+
+  const c=document.getElementById("container");
+  if(!accounts.length){
+    c.innerHTML=`<div class="empty"><div class="empty-ic">🍎</div><div class="empty-t">Chưa có account nào</div><p>Chạy Lua script trong game để bắt đầu tracking.</p></div>`;
     return;
   }
-  c.innerHTML = `<div class="grid">${accounts.map(card).join("")}</div>`;
+  c.innerHTML=`<div class="grid">${accounts.map(card).join("")}</div>`;
 }
 
-// ── Fetch ─────────────────────────────────────────
-async function load() {
-  try {
-    const r = await fetch("/api/accounts");
-    if (!r.ok) throw new Error(r.status);
-    const data = await r.json();
-    render(data);
-    document.getElementById("lastSync").textContent =
-      "Cập nhật: " + new Date().toLocaleTimeString("vi-VN");
-  } catch(e) {
-    document.getElementById("lastSync").textContent = "❌ Lỗi kết nối";
-  }
+// ── FETCH ──
+async function load(){
+  try{
+    const r=await fetch("/api/accounts");
+    if(!r.ok)throw new Error(r.status);
+    render(await r.json());
+    document.getElementById("lastSync").textContent="Cập nhật: "+new Date().toLocaleTimeString("vi-VN");
+  }catch{document.getElementById("lastSync").textContent="❌ Lỗi kết nối";}
 }
 
-// ── Delete flow ───────────────────────────────────
-let _delKey = null;
-function openDel(key, name) {
-  _delKey = key;
-  document.getElementById("del-name").textContent = name;
-  document.getElementById("del-key").value = "";
-  document.getElementById("del-modal").classList.add("open");
-}
-function closeDel() {
-  document.getElementById("del-modal").classList.remove("open");
-  _delKey = null;
-}
-async function doDelete() {
-  const k = document.getElementById("del-key").value.trim();
-  if (!k) { toast("⚠️ Nhập API Secret trước!"); return; }
-  try {
-    const r = await fetch("/api/delete", {
-      method:"DELETE",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({ key:k, account_key:_delKey })
-    });
-    if (r.ok) { toast("✅ Đã xóa account"); closeDel(); load(); }
-    else { const e = await r.json(); toast("❌ " + (e.error||"Lỗi")); }
-  } catch { toast("❌ Lỗi kết nối"); }
-}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),3000);}
 
-// ── Raw toggle ────────────────────────────────────
-function toggleRaw(btn) {
-  const panel = btn.closest(".card").querySelector(".raw-panel");
-  const open  = panel.classList.toggle("open");
-  btn.textContent = open ? "raw data ▴" : "raw data ▾";
-}
-
-// ── Script modal ──────────────────────────────────
-const SCRIPT = `-- ████████████████████████████████████████████████
--- ThlongPremium | Blox Fruit Stat Tracker v1.0
--- ████████████████████████████████████████████████
-
-local API_URL    = "https://trackstat-eight.vercel.app/api/update"
-local API_SECRET = "ThlongPremium2024"
-
-local Http   = game:GetService("HttpService")
-local Player = game.Players.LocalPlayer
-
-local function post(payload)
-    local b = Http:JSONEncode(payload)
-    local h = {["Content-Type"]="application/json",["Authorization"]="Bearer "..API_SECRET}
-    if syn      and syn.request   then return syn.request({Url=API_URL,Method="POST",Headers=h,Body=b}) end
-    if request                    then return request({Url=API_URL,Method="POST",Headers=h,Body=b}) end
-    if http     and http.request  then return http.request({Url=API_URL,Method="POST",Headers=h,Body=b}) end
-    if fluxus   and fluxus.request then return fluxus.request({Url=API_URL,Method="POST",Headers=h,Body=b}) end
-end
-
-local function scan(obj)
-    local t = {}
-    local ok, desc = pcall(function() return obj:GetDescendants() end)
-    if not ok then return t end
-    for _, v in ipairs(desc) do
-        if v:IsA("NumberValue") or v:IsA("IntValue") or v:IsA("StringValue") or v:IsA("BoolValue") then
-            t[v.Name] = v.Value
-        end
-    end
-    return t
-end
-
-local function collect()
-    local raw = {}
-    for _, child in ipairs(Player:GetChildren()) do
-        if child:IsA("Folder") or child:IsA("Configuration") then
-            for k,v in pairs(scan(child)) do raw[k] = v end
-        end
-    end
-    local ls = Player:FindFirstChild("leaderstats")
-    if ls then for _, v in ipairs(ls:GetChildren()) do raw[v.Name] = v.Value end end
-
-    pcall(function()
-        local rem = game.ReplicatedStorage:WaitForChild("Remotes", 2)
-        if rem then
-            local gd = rem:FindFirstChild("GetData") or rem:FindFirstChild("CommF_")
-            if gd and gd:IsA("RemoteFunction") then
-                local result = gd:InvokeServer()
-                if type(result) == "table" then
-                    for k,v in pairs(result) do
-                        if type(v) ~= "table" and type(v) ~= "function" then raw["remote_"..k] = v end
-                    end
-                end
-            end
-        end
-    end)
-
-    return {
-        key = API_SECRET,
-        account_key = Player.Name.."_"..tostring(Player.UserId),
-        data = {
-            username=Player.Name, display_name=Player.DisplayName, user_id=Player.UserId,
-            level=raw.Level or raw.Lvl or raw.remote_Level or 0,
-            beli=raw.Beli or raw.remote_Beli or 0,
-            bounty=raw.Bounty or raw.remote_Bounty or 0,
-            honor=raw.Honor or raw.remote_Honor or 0,
-            fragments=raw.Fragments or raw.remote_Fragments or 0,
-            stat_melee=raw.Melee or 0, stat_defense=raw.Defense or 0,
-            stat_sword=raw.Sword or 0, stat_gun=raw.Gun or 0, stat_fruit=raw.Fruit or 0,
-            race=raw.Race or raw.remote_Race or "Human",
-            devil_fruit=raw.DevilFruit or raw.FruitName or raw.CurrentFruit or raw.remote_DevilFruit or "None",
-            sea=raw.Sea or raw.remote_Sea or 1,
-            raw_dump=raw
-        }
-    }
-end
-
-local function notif(msg, color)
-    color = color or Color3.fromRGB(147,51,234)
-    pcall(function()
-        local old = game.CoreGui:FindFirstChild("_ThlongNotif")
-        if old then old:Destroy() end
-        local g = Instance.new("ScreenGui",game.CoreGui)
-        g.Name="_ThlongNotif"; g.ResetOnSpawn=false
-        local f = Instance.new("Frame",g)
-        f.Size=UDim2.new(0,280,0,40); f.Position=UDim2.new(1,-296,0,12)
-        f.BackgroundColor3=Color3.fromRGB(12,8,22); f.BorderSizePixel=0
-        Instance.new("UICorner",f).CornerRadius=UDim.new(0,8)
-        local a=Instance.new("Frame",f)
-        a.Size=UDim2.new(0,3,1,0); a.BackgroundColor3=color; a.BorderSizePixel=0
-        local t=Instance.new("TextLabel",f)
-        t.Size=UDim2.new(1,-14,1,0); t.Position=UDim2.new(0,12,0,0)
-        t.BackgroundTransparency=1; t.TextColor3=Color3.fromRGB(218,208,240)
-        t.TextSize=12; t.Font=Enum.Font.GothamMedium; t.Text=msg
-        t.TextXAlignment=Enum.TextXAlignment.Left; t.TextTruncate=Enum.TextTruncate.AtEnd
-        game:GetService("Debris"):AddItem(g,3.5)
-    end)
-end
-
-notif("🟣 ThlongTracker đang khởi động...")
-task.wait(5)
-
-while true do
-    local ok, payload = pcall(collect)
-    if ok then
-        local sent, err = pcall(post, payload)
-        if sent then
-            notif("✅ Synced: "..Player.Name.." Lv."..tostring(payload.data.level))
-        else
-            notif("❌ Gửi thất bại — check URL", Color3.fromRGB(220,50,50))
-        end
-    else
-        notif("❌ Lỗi đọc data", Color3.fromRGB(220,50,50))
-    end
-    task.wait(60)
-end`;
-
-function openScript() {
-  document.getElementById("script-box").textContent = SCRIPT;
-  document.getElementById("script-modal").classList.add("open");
-}
-function closeScript() { document.getElementById("script-modal").classList.remove("open"); }
-async function copyScript() {
-  try { await navigator.clipboard.writeText(SCRIPT); toast("✅ Đã copy script!"); }
-  catch { toast("❌ Copy thủ công từ ô trên"); }
-}
-
-// ── Toast ─────────────────────────────────────────
-function toast(msg) {
-  const t = document.getElementById("toast");
-  t.textContent = msg; t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"), 3000);
-}
-
-// ── Init ──────────────────────────────────────────
 load();
-setInterval(load, 30000);
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") { closeDel(); closeScript(); }
-});
+setInterval(load,30000);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeDetail();closeDel();}});
 </script>
 </body>
 </html>
