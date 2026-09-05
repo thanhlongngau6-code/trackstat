@@ -1,474 +1,584 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ThlongPremium — Blox Fruit Tracker</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ThlongPremium — Account Intelligence</title>
 <style>
-:root {
-  --bg:#070512; --bg2:#0c0920; --bg3:#120e2a; --card:#100d1e; --card-h:#161229;
-  --bord:#251b42; --bord-h:#7c3aed; --pur:#9333ea; --pur-l:#a855f7; --pur-d:#6b21a8;
-  --acc:#c084fc; --txt:#e2d9f3; --txt-d:#9985c5; --txt-m:#4e4270;
-  --grn:#4ade80; --red:#f87171; --yel:#fbbf24; --blu:#60a5fa; --teal:#2dd4bf;
-}
+:root{--bg:#0b0c16;--bg2:#0e0f1a;--card:#13131f;--cb:rgba(255,255,255,0.06);--cbh:rgba(255,255,255,0.13);
+--on:#10b981;--on-bg:rgba(16,185,129,0.12);--on-bd:rgba(16,185,129,0.28);
+--off:#6b7280;--off-bg:rgba(107,114,128,0.1);--off-bd:rgba(107,114,128,0.2);
+--txt:#f1f5f9;--txt-d:#94a3b8;--txt-m:#4b5563;--teal:#34d399;--div:rgba(255,255,255,0.05);--box:#0d0e19;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
-
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;}
 /* HEADER */
-.hdr{background:linear-gradient(135deg,#0b0620,#110840);border-bottom:1px solid var(--bord);
-  padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
-.logo{display:flex;align-items:center;gap:12px;}
-.logo-ic{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--pur),var(--acc));
-  display:flex;align-items:center;justify-content:center;font-size:22px;}
-.logo-t{font-size:19px;font-weight:800;background:linear-gradient(135deg,var(--pur-l),var(--acc));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.logo-s{font-size:10px;color:var(--txt-m);letter-spacing:2px;text-transform:uppercase;}
-.hdr-r{display:flex;align-items:center;gap:14px;}
-.live-dot{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txt-m);}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.btn{padding:8px 16px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s;}
-.btn-pur{background:var(--pur);color:#fff;}
-.btn-pur:hover{background:var(--pur-l);transform:translateY(-1px);}
-.btn-ghost{background:transparent;color:var(--txt-d);border:1px solid var(--bord);}
-.btn-ghost:hover{background:var(--bg3);color:var(--txt);}
-
-/* SUMBAR */
-.sumbar{background:var(--bg2);border-bottom:1px solid var(--bord);padding:14px 32px;display:flex;gap:40px;overflow-x:auto;}
-.si{display:flex;flex-direction:column;gap:2px;white-space:nowrap;}
-.si-l{font-size:10px;color:var(--txt-m);text-transform:uppercase;letter-spacing:1px;}
-.si-v{font-size:22px;font-weight:800;color:var(--acc);}
-
+.hdr{background:var(--bg2);border-bottom:1px solid var(--div);padding:11px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:0;z-index:50;}
+.hdr-logo{display:flex;align-items:center;gap:10px;}
+.hdr-icon{width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,#1e40af,#7c3aed);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.hdr-name{font-size:14px;font-weight:700;}
+.hdr-sub{font-size:10px;color:var(--txt-d);}
+.hdr-mid{display:flex;align-items:center;gap:8px;}
+.hcount{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:16px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);
+  font-size:12px;color:var(--txt-d);}
+.rt{display:flex;align-items:center;gap:5px;padding:4px 11px;border-radius:16px;
+  background:var(--on-bg);border:1px solid var(--on-bd);font-size:11px;font-weight:600;color:var(--on);}
+.rt-dot{width:5px;height:5px;border-radius:50%;background:var(--on);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 /* MAIN */
-.main{padding:26px 32px;}
-.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
-.sec-title{font-size:15px;font-weight:700;}
-.cnt{background:var(--bg3);border:1px solid var(--bord);color:var(--txt-d);padding:3px 12px;border-radius:20px;font-size:12px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
-
+.main{max-width:760px;margin:0 auto;padding:18px 14px;}
+.hero{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;}
+.live-lbl{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;
+  letter-spacing:1px;color:var(--teal);text-transform:uppercase;margin-bottom:4px;}
+.ldot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;}
+.h1{font-size:20px;font-weight:800;color:var(--txt);}
+.hsub{font-size:11px;color:var(--txt-d);text-align:right;max-width:150px;line-height:1.5;}
+/* CONTROLS */
+.ctrls{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.srch{position:relative;}
+.srch input{width:100%;background:var(--card);border:1px solid var(--cb);border-radius:10px;
+  padding:9px 13px 9px 34px;color:var(--txt);font-size:13px;outline:none;transition:border .15s;}
+.srch input:focus{border-color:rgba(52,211,153,0.35);}
+.srch input::placeholder{color:var(--txt-m);}
+.srch-ic{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--txt-m);pointer-events:none;font-size:13px;}
+.frow{display:flex;gap:5px;overflow-x:auto;}
+.frow::-webkit-scrollbar{display:none;}
+.fb{flex-shrink:0;padding:5px 12px;border-radius:7px;border:1px solid var(--cb);
+  background:transparent;color:var(--txt-d);font-size:11px;font-weight:500;cursor:pointer;
+  transition:all .15s;white-space:nowrap;}
+.fb:hover{background:rgba(255,255,255,0.05);color:var(--txt);}
+.fb.on{background:var(--txt);color:#0b0c16;border-color:var(--txt);font-weight:700;}
+.sort-btn{margin-left:auto;flex-shrink:0;padding:5px 11px;border-radius:7px;
+  border:1px solid var(--cb);background:transparent;color:var(--txt-d);font-size:11px;cursor:pointer;}
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+@media(max-width:480px){.grid{grid-template-columns:1fr;}}
 /* CARD */
-.card{background:var(--card);border:1px solid var(--bord);border-radius:16px;overflow:hidden;
-  transition:all .25s;cursor:pointer;}
-.card:hover{border-color:var(--bord-h);background:var(--card-h);transform:translateY(-2px);
-  box-shadow:0 8px 36px rgba(147,51,234,.18);}
-.card-accent{height:3px;background:linear-gradient(90deg,var(--pur),var(--acc));}
-.card-hdr{padding:14px 15px 10px;display:flex;align-items:flex-start;justify-content:space-between;}
-.ident{display:flex;align-items:flex-start;gap:11px;}
-.av{width:42px;height:42px;flex-shrink:0;border-radius:50%;
-  background:linear-gradient(135deg,var(--pur-d),var(--pur));
-  display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;}
-.uname{font-size:14px;font-weight:700;}
-.dname{font-size:11px;color:var(--txt-m);margin-top:1px;}
-.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;}
-.badge{padding:2px 7px;border-radius:12px;font-size:10px;font-weight:700;text-transform:uppercase;}
-.b-s1{background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.3);}
-.b-s2{background:rgba(96,165,250,.12);color:#60a5fa;border:1px solid rgba(96,165,250,.3);}
-.b-s3{background:rgba(192,132,252,.12);color:#c084fc;border:1px solid rgba(192,132,252,.3);}
-.b-race{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.3);}
-.lv-block{text-align:right;flex-shrink:0;}
-.lv-num{font-size:28px;font-weight:900;color:var(--acc);line-height:1;}
-.lv-lbl{font-size:9px;color:var(--txt-m);text-transform:uppercase;letter-spacing:1px;}
-.del-btn{background:transparent;border:none;cursor:pointer;color:var(--txt-m);font-size:13px;
-  padding:3px 6px;border-radius:6px;transition:.2s;display:block;margin-bottom:2px;}
-.del-btn:hover{background:rgba(248,113,113,.12);color:var(--red);}
-
-/* level bar */
-.lv-bar-wrap{padding:0 15px 10px;}
-.lv-track{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
-.lv-fill{height:100%;background:linear-gradient(90deg,var(--pur),var(--acc));border-radius:2px;transition:width .5s;}
-
-/* card quick info */
-.qrow{padding:10px 15px;border-top:1px solid var(--bord);display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.fi{font-size:16px;}
-.fn{font-size:13px;font-weight:600;}
-.fn-none{color:var(--txt-m);font-style:italic;}
-.cur-mini{display:flex;gap:12px;padding:10px 15px;border-top:1px solid var(--bord);}
-.cm{display:flex;flex-direction:column;}
-.cm-v{font-size:13px;font-weight:700;}
-.cm-l{font-size:10px;color:var(--txt-m);}
-.tap-hint{padding:8px 15px;border-top:1px solid var(--bord);font-size:11px;color:var(--txt-m);
-  display:flex;align-items:center;gap:5px;}
-.online-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--grn);
-  margin-left:4px;vertical-align:middle;animation:pulse 2s infinite;}
-
+.card{background:var(--card);border:1px solid var(--cb);border-radius:13px;
+  overflow:hidden;cursor:pointer;transition:border-color .15s,transform .15s;}
+.card:hover{border-color:var(--cbh);transform:translateY(-1px);}
+/* card head */
+.ch{padding:11px 11px 9px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.avw{position:relative;flex-shrink:0;}
+.av{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+  background:linear-gradient(135deg,#1e3a5f,#2d1b69);}
+.av-fb{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1e3a5f,#2d1b69);
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;}
+.avd{position:absolute;bottom:0;right:0;width:9px;height:9px;border-radius:50%;border:2px solid var(--card);}
+.avd.on{background:var(--on);}
+.avd.off{background:var(--off);}
+.ci{flex:1;min-width:0;}
+.cu{font-size:12px;font-weight:700;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cd{font-size:10px;color:var(--txt-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sbadge{flex-shrink:0;display:flex;align-items:center;gap:3px;padding:3px 7px;
+  border-radius:16px;font-size:9px;font-weight:700;letter-spacing:.3px;}
+.sbadge.on{background:var(--on-bg);border:1px solid var(--on-bd);color:var(--on);}
+.sbadge.off{background:var(--off-bg);border:1px solid var(--off-bd);color:var(--off);}
+/* divider */
+.hline{height:1px;background:var(--div);margin:0 11px;}
+/* stats */
+.cs{padding:9px 11px 7px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;}
+.slbl{font-size:8px;font-weight:600;color:var(--txt-m);text-transform:uppercase;letter-spacing:.4px;
+  display:flex;align-items:center;gap:2px;margin-bottom:2px;}
+.sval{font-size:18px;font-weight:800;line-height:1;}
+.sval.w{color:var(--txt);}
+.sval.t{color:var(--teal);}
+/* items */
+.ci2{padding:0 11px 7px;display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.il{font-size:8px;color:var(--txt-m);display:flex;align-items:center;gap:2px;margin-bottom:1px;}
+.iv{font-size:11px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.iv.m{color:var(--txt-d);}
+/* footer */
+.cf{padding:7px 11px;display:flex;align-items:center;justify-content:space-between;}
+.upd{font-size:9px;color:var(--txt-m);display:flex;align-items:center;gap:3px;}
+.upt{font-size:9px;font-weight:600;color:var(--txt-d);}
+.upt.live{color:var(--teal);}
 /* EMPTY / LOADER */
-.empty{text-align:center;padding:80px 20px;color:var(--txt-m);}
-.empty-ic{font-size:52px;margin-bottom:14px;opacity:.4;}
-.empty-t{font-size:18px;color:var(--txt-d);margin-bottom:6px;}
-.loader{text-align:center;padding:60px;color:var(--txt-m);}
-.spin{width:30px;height:30px;border:3px solid var(--bg3);border-top-color:var(--pur);border-radius:50%;
-  animation:spin .8s linear infinite;margin:0 auto 14px;}
+.empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--txt-d);}
+.loader{grid-column:1/-1;text-align:center;padding:50px;}
+.spin{width:24px;height:24px;border:2px solid rgba(255,255,255,0.08);border-top-color:var(--teal);
+  border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 10px;}
 @keyframes spin{to{transform:rotate(360deg);}}
-
-/* DETAIL MODAL */
-.overlay{display:none;position:fixed;inset:0;background:rgba(7,5,18,.9);z-index:200;
-  align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
-.overlay.open{display:flex;}
-.detail{background:var(--card);border:1px solid var(--bord);border-radius:18px;
-  width:100%;max-width:560px;overflow:hidden;margin:auto;}
-.detail-hdr{background:linear-gradient(135deg,#0f0a28,#1a0f3a);padding:20px;
-  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
-.detail-ident{display:flex;align-items:center;gap:12px;}
-.detail-av{width:52px;height:52px;flex-shrink:0;border-radius:50%;
-  background:linear-gradient(135deg,var(--pur-d),var(--pur));
-  display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;}
-.detail-uname{font-size:17px;font-weight:800;}
-.detail-sub{font-size:12px;color:var(--txt-m);margin-top:2px;}
-.detail-lv{text-align:right;flex-shrink:0;}
-.detail-lv-num{font-size:36px;font-weight:900;color:var(--acc);line-height:1;}
-.detail-lv-lbl{font-size:10px;color:var(--txt-m);text-transform:uppercase;}
-.close-btn{background:var(--bg3);border:none;color:var(--txt-d);width:32px;height:32px;
-  border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;transition:.2s;}
-.close-btn:hover{background:var(--bord);color:var(--txt);}
-
+/* DETAIL OVERLAY */
+.ov{display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,0.8);backdrop-filter:blur(6px);
+  align-items:flex-end;justify-content:center;}
+.ov.open{display:flex;}
+.detail{background:#12121e;border:1px solid rgba(255,255,255,0.09);
+  border-radius:18px 18px 0 0;width:100%;max-width:600px;
+  max-height:92vh;overflow-y:auto;position:relative;}
+.detail::-webkit-scrollbar{width:3px;}
+.detail::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px;}
+/* detail header */
+.dt{padding:18px 18px 0;}
+.dpl{font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--teal);
+  text-transform:uppercase;margin-bottom:12px;}
+.dident{display:flex;align-items:flex-start;gap:13px;margin-bottom:14px;}
+.daw{position:relative;flex-shrink:0;}
+.dav{width:64px;height:64px;border-radius:50%;object-fit:cover;
+  background:linear-gradient(135deg,#1e3a5f,#2d1b69);display:block;}
+.dav-fb{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#1e3a5f,#2d1b69);
+  display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#fff;}
+.dad{position:absolute;bottom:1px;right:1px;width:13px;height:13px;border-radius:50%;border:2.5px solid #12121e;}
+.dad.on{background:var(--on);}
+.dad.off{background:var(--off);}
+.dun{font-size:19px;font-weight:800;color:var(--txt);margin-bottom:1px;}
+.ddn{font-size:12px;color:var(--txt-d);margin-bottom:7px;}
+.dcl{position:absolute;top:14px;right:14px;width:27px;height:27px;border-radius:50%;
+  background:rgba(255,255,255,0.06);border:none;color:var(--txt-d);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:.15s;}
+.dcl:hover{background:rgba(255,255,255,0.1);color:var(--txt);}
+/* detail boxes */
+.dboxes{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:14px;}
+.dbox{background:var(--box);border:1px solid rgba(255,255,255,0.04);border-radius:9px;padding:9px 11px;}
+.dbl{font-size:8px;color:var(--txt-m);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;}
+.dbv{font-size:15px;font-weight:800;color:var(--txt);}
 /* detail sections */
-.dsec{padding:14px 18px;border-top:1px solid var(--bord);}
-.dsec-t{font-size:10px;color:var(--txt-m);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-
-/* stat bars (detail) */
-.srow{display:grid;grid-template-columns:72px 1fr 48px;align-items:center;gap:8px;margin-bottom:5px;}
-.sn{font-size:10px;color:var(--txt-m);text-transform:uppercase;}
-.track{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;}
-.fill{height:100%;border-radius:3px;transition:width .5s;}
-.f-mel{background:linear-gradient(90deg,#f87171,#fca5a5);}
-.f-def{background:linear-gradient(90deg,#60a5fa,#93c5fd);}
-.f-swd{background:linear-gradient(90deg,#4ade80,#86efac);}
-.f-gun{background:linear-gradient(90deg,#fbbf24,#fde68a);}
-.f-fru{background:linear-gradient(90deg,#c084fc,#e9d5ff);}
-.sv{font-size:11px;color:var(--txt-d);text-align:right;font-variant-numeric:tabular-nums;}
-
-/* currency */
-.cur-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-.ci{background:var(--bg3);border-radius:8px;padding:9px 10px;text-align:center;}
-.ca{font-size:14px;font-weight:800;}
-.cl{font-size:10px;color:var(--txt-m);text-transform:uppercase;margin-top:2px;}
-
-/* raw data grid */
-.raw-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
-.raw-row{background:var(--bg3);border-radius:7px;padding:7px 10px;display:flex;
-  flex-direction:column;gap:2px;}
-.raw-key{font-size:10px;color:var(--txt-m);text-transform:uppercase;letter-spacing:.3px;}
-.raw-val{font-size:12px;font-weight:600;word-break:break-all;}
-
-/* DELETE MODAL */
-.dmodal{background:var(--card);border:1px solid var(--bord);border-radius:16px;
-  padding:24px;width:380px;max-width:92vw;margin:auto;}
-.dmodal-t{font-size:16px;font-weight:800;margin-bottom:10px;}
-.dmodal-sub{font-size:13px;color:var(--txt-d);margin-bottom:14px;line-height:1.5;}
-.dmodal input{width:100%;background:var(--bg);border:1px solid var(--bord);border-radius:8px;
-  padding:10px 14px;color:var(--txt);font-size:14px;margin-bottom:14px;outline:none;}
-.dmodal input:focus{border-color:var(--pur);}
-.dmodal-btns{display:flex;gap:10px;justify-content:flex-end;}
-.btn-danger{background:#dc2626;color:#fff;}
-.btn-danger:hover{background:#ef4444;}
-
-/* TOAST */
-.toast{position:fixed;bottom:22px;right:22px;background:var(--bg3);border:1px solid var(--bord);
-  border-left:3px solid var(--pur);border-radius:10px;padding:11px 18px;font-size:13px;color:var(--txt);
-  opacity:0;transform:translateX(14px);transition:all .3s;z-index:400;pointer-events:none;}
-.toast.show{opacity:1;transform:translateX(0);}
-
-@media(max-width:640px){
-  .hdr,.sumbar,.main{padding-left:14px;padding-right:14px;}
-  .grid{grid-template-columns:1fr;}
-  .sumbar{gap:20px;flex-wrap:wrap;}
-  .hdr{flex-wrap:wrap;gap:10px;}
-  .raw-grid{grid-template-columns:1fr;}
-}
+.dsec{padding:12px 18px;border-top:1px solid var(--div);}
+.dst{font-size:10px;font-weight:700;color:var(--txt-d);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px;}
+.d2c{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.drow{display:flex;align-items:center;justify-content:space-between;padding:4px 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);}
+.drow:last-child{border-bottom:none;}
+.drk{font-size:11px;color:var(--txt-m);display:flex;align-items:center;gap:5px;}
+.drv{font-size:11px;color:var(--txt);font-weight:500;display:flex;align-items:center;gap:4px;max-width:50%;text-align:right;word-break:break-all;}
+.drv.m{color:var(--txt-d);}
+.cpbtn{background:none;border:none;color:var(--txt-m);cursor:pointer;font-size:10px;
+  padding:1px 3px;border-radius:3px;flex-shrink:0;}
+.cpbtn:hover{background:rgba(255,255,255,0.06);color:var(--txt);}
+/* items table */
+.itlist{display:flex;flex-direction:column;gap:1px;}
+.itempty{font-size:11px;color:var(--txt-m);}
+.itrow{display:flex;align-items:center;justify-content:space-between;padding:4px 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);}
+.itrow:last-child{border-bottom:none;}
+.itn{font-size:11px;color:var(--txt);}
+.itq{font-size:11px;color:var(--txt-d);font-weight:600;background:rgba(255,255,255,0.05);
+  padding:1px 7px;border-radius:4px;}
+/* timestamps */
+.dts{padding:10px 18px;border-top:1px solid var(--div);display:flex;flex-wrap:wrap;gap:10px;}
+.tsi{font-size:10px;color:var(--txt-m);}
+.tsi span{color:var(--txt-d);}
+/* toast */
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(6px);
+  background:#1a1a2a;border:1px solid rgba(255,255,255,0.1);border-radius:9px;
+  padding:9px 16px;font-size:12px;color:var(--txt);
+  opacity:0;transition:all .22s;z-index:300;white-space:nowrap;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header class="hdr">
-  <div class="logo">
-    <div class="logo-ic">🍎</div>
+  <div class="hdr-logo">
+    <div class="hdr-icon">⬡</div>
     <div>
-      <div class="logo-t">ThlongPremium</div>
-      <div class="logo-s">Blox Fruit Tracker</div>
+      <div class="hdr-name">ThlongPremium</div>
+      <div class="hdr-sub">Account intelligence</div>
     </div>
   </div>
-  <div class="hdr-r">
-    <div class="live-dot"><div class="dot"></div><span id="lastSync">Đang tải...</span></div>
-    <button class="btn btn-pur" onclick="load()">↻ Refresh</button>
+  <div class="hdr-mid">
+    <div class="hcount">👤 <span id="h-total">0</span></div>
+    <div class="hcount">📶 <span id="h-online">0</span></div>
+    <div class="hcount">○ <span id="h-offline">0</span></div>
   </div>
+  <div class="rt"><div class="rt-dot"></div>Realtime connected</div>
 </header>
 
-<div class="sumbar">
-  <div class="si"><div class="si-l">Tổng ACC</div><div class="si-v" id="s-total">0</div></div>
-  <div class="si"><div class="si-l">Online</div><div class="si-v" id="s-online" style="color:var(--grn)">0</div></div>
-  <div class="si"><div class="si-l">Level Cao Nhất</div><div class="si-v" id="s-maxlv">0</div></div>
-  <div class="si"><div class="si-l">Tổng Beli</div><div class="si-v" id="s-beli" style="color:var(--yel)">0</div></div>
-  <div class="si"><div class="si-l">Tổng Fragment</div><div class="si-v" id="s-frag" style="color:var(--acc)">0</div></div>
-</div>
-
 <main class="main">
-  <div class="sec-hdr">
-    <div class="sec-title">Accounts</div>
-    <span class="cnt" id="cnt-lbl">0 acc</span>
+  <div class="hero">
+    <div>
+      <div class="live-lbl"><div class="ldot"></div>LIVE FLEET</div>
+      <div class="h1">Account overview</div>
+    </div>
+    <div class="hsub">Every player signal, one clear view.</div>
   </div>
-  <div id="container"><div class="loader"><div class="spin"></div>Đang tải dữ liệu...</div></div>
-</main>
 
-<!-- DETAIL MODAL -->
-<div class="overlay" id="detail-modal" onclick="if(event.target===this)closeDetail()">
-  <div class="detail" id="detail-content"></div>
-</div>
-
-<!-- DELETE MODAL -->
-<div class="overlay" id="del-modal">
-  <div class="dmodal">
-    <div class="dmodal-t">🗑️ Xóa Account</div>
-    <div class="dmodal-sub">Nhập API Secret để xóa <strong id="del-name" style="color:var(--acc)"></strong>.</div>
-    <input type="password" id="del-key" placeholder="API Secret (mặc định: ThlongPremium2024)" />
-    <div class="dmodal-btns">
-      <button class="btn btn-ghost" onclick="closeDel()">Hủy</button>
-      <button class="btn btn-danger" onclick="doDelete()">Xóa</button>
+  <div class="ctrls">
+    <div class="srch">
+      <span class="srch-ic">🔍</span>
+      <input id="search" placeholder="Search username, display name or UserId" oninput="applyFilter()"/>
+    </div>
+    <div class="frow">
+      <button class="fb on" onclick="setFilter('all',this)">All</button>
+      <button class="fb" onclick="setFilter('online',this)">Online</button>
+      <button class="fb" onclick="setFilter('offline',this)">Offline</button>
+      <button class="fb" onclick="setFilter('sea1',this)">Sea 1</button>
+      <button class="fb" onclick="setFilter('sea2',this)">Sea 2</button>
+      <button class="fb" onclick="setFilter('sea3',this)">Sea 3</button>
+      <button class="sort-btn" onclick="toggleSort()">⊟ <span id="sort-lbl">Last update</span></button>
     </div>
   </div>
+
+  <div class="grid" id="grid">
+    <div class="loader"><div class="spin"></div></div>
+  </div>
+</main>
+
+<!-- DETAIL OVERLAY -->
+<div class="ov" id="ov" onclick="if(event.target===this)closeDetail()">
+  <div class="detail" id="det"></div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-const MAX_LV = 2800;
-const SEA = {1:"🌊 First Sea",2:"🌏 Second Sea",3:"⚓ Third Sea"};
-const SEA_CLS = {1:"b-s1",2:"b-s2",3:"b-s3"};
-const FRUIT_MAP = {
-  smoke:"💨",spike:"🌵",flame:"🔥",falcon:"🦅",ice:"🧊",sand:"🏜️",dark:"🌑",revive:"💚",
-  diamond:"💎",light:"✨",rubber:"🏐",barrier:"🛡️",magma:"🌋",quake:"💥",buddha:"🧘",
-  string:"🕸️",phoenix:"🔴",rumble:"⚡",paw:"🐾",gravity:"🌀",mammoth:"🦣","t-rex":"🦖",
-  spirit:"👻",leopard:"🐆",kitsune:"🦊",venom:"☠️",control:"🎮",portal:"🔮",shadow:"🌙",
-  blizzard:"❄️",dragon:"🐉",soul:"💫",dough:"🫓",bomb:"💣",rocket:"🚀",human:"👊",love:"❤️",
-  bird:"🦤",spring:"🌀",chop:"🔪",spin:"🌪️",swim:"🐟",
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const fmt = n => {
+    n = Number(n)||0;
+    if(n>=1e9)return(n/1e9).toFixed(1)+'B';
+    if(n>=1e6)return(n/1e6).toFixed(1)+'M';
+    if(n>=1e3)return(n/1e3).toFixed(1)+'K';
+    return n.toLocaleString();
 };
+const fmtFull = n => (Number(n)||0).toLocaleString();
+const isOnline = iso => iso && (Date.now()-new Date(iso).getTime()) < 3*60*1000;
+const ago = iso => {
+    if(!iso)return'—';
+    const s=Math.floor((Date.now()-new Date(iso).getTime())/1000);
+    if(s<5)return'Just now';
+    if(s<60)return s+'s ago';
+    const m=Math.floor(s/60);
+    if(m<60)return m+'m ago';
+    return Math.floor(m/60)+'h ago';
+};
+const uptime = acc => {
+    if(!acc.session_start||!isOnline(acc.last_updated))return null;
+    const s=Math.floor((Date.now()-new Date(acc.session_start).getTime())/1000);
+    if(s<0)return null;
+    const m=Math.floor(s/60);
+    return m>0?`Up ${m}m ${s%60}s`:`Up ${s}s`;
+};
+const tsFormat = iso => {
+    if(!iso)return'—';
+    return new Date(iso).toLocaleString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
+};
+const g  = (o,...k)=>{for(const x of k){const v=o?.[x];if(v!==undefined&&v!==null)return Number(v)||0;}return 0;};
+const gs = (o,...k)=>{for(const x of k){const v=o?.[x];if(v!==undefined&&v!==null&&String(v).trim()!=='')return String(v);}return'';};
 
-const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-const fmt = n => { n=Number(n)||0; if(n>=1e9)return(n/1e9).toFixed(1)+"B"; if(n>=1e6)return(n/1e6).toFixed(1)+"M"; if(n>=1e3)return(n/1e3).toFixed(1)+"K"; return n.toLocaleString("vi-VN"); };
-const ago = iso => { if(!iso)return"Chưa sync"; const m=Math.floor((Date.now()-new Date(iso))/60000); if(m<1)return"vừa xong"; if(m<60)return m+" phút trước"; const h=Math.floor(m/60); if(h<24)return h+" giờ trước"; return Math.floor(h/24)+" ngày trước"; };
-const isOnline = iso => iso && (Date.now()-new Date(iso)) < 3*60*1000;
-const fi = name => { if(!name||name==="None")return"❌"; const n=name.toLowerCase(); for(const[k,v]of Object.entries(FRUIT_MAP))if(n.includes(k))return v; return"🍎"; };
+const FRUIT_IC = {flame:'🔥',ice:'🧊',magma:'🌋',light:'✨',dark:'🌑',buddha:'🧘',phoenix:'🔴',
+  rumble:'⚡',dragon:'🐉',leopard:'🐆',kitsune:'🦊',shadow:'🌙',dough:'🫓',spirit:'👻',
+  string:'🕸️',quake:'💥',paw:'🐾',gravity:'🌀',venom:'☠️',mammoth:'🦣',control:'🎮',
+  blizzard:'❄️',portal:'🔮',smoke:'💨',diamond:'💎',rubber:'🏐',barrier:'🛡️',
+  revive:'💚',sand:'🏜️',bird:'🦤',love:'❤️',spike:'🌵',rocket:'🚀',bomb:'💣','t-rex':'🦖'};
 
-const g  = (obj,...keys) => { for(const k of keys){const v=obj[k]; if(v!==undefined&&v!==null)return Number(v)||0;} return 0; };
-const gs = (obj,...keys) => { for(const k of keys){const v=obj[k]; if(v!==undefined&&v!==null&&v!=="")return String(v);} return""; };
-
-// level từ nhiều nguồn, ưu tiên giá trị > 1
-function getLevel(acc) {
-  const candidates = [
-    g(acc,"level","Level"),
-    g(acc.raw_dump||{},"Level","Lvl"),
-  ].filter(v=>v>0);
-  return candidates.length ? Math.max(...candidates) : 0;
+function fruitIc(f){
+    if(!f||f==='None'||f==='—')return'—';
+    const n=f.toLowerCase();
+    for(const[k,v]of Object.entries(FRUIT_IC))if(n.includes(k))return v+' '+f;
+    return'🍎 '+f;
 }
 
-let allAccounts = [];
-let _delKey = null;
+function getLevel(acc){
+    let lv=Number(acc.level||0);
+    if(lv>1)return lv;
+    const raw=acc.raw_dump||{};
+    for(const[k,v]of Object.entries(raw)){
+        if(k.toLowerCase()==='level'&&Number(v)>lv)lv=Number(v);
+    }
+    return lv;
+}
 
-// ── CARD ──
-function card(acc) {
-  const user  = esc(gs(acc,"username","Username")||"???");
-  const lv    = getLevel(acc);
-  const sea   = g(acc,"sea","Sea")||1;
-  const race  = esc(gs(acc,"race","Race")||"Human");
-  const fruit = gs(acc,"devil_fruit","DevilFruit","FruitName")||"None";
-  const beli  = g(acc,"beli","Beli");
-  const frag  = g(acc,"fragments","Fragments");
-  const bnty  = g(acc,"bounty","Bounty");
-  const honor = g(acc,"honor","Honor");
-  const key   = esc(acc.account_key||user);
-  const on    = isOnline(acc.last_updated);
-  const lvPct = Math.min((lv/MAX_LV)*100,100).toFixed(1);
-  const currency3rd = sea>=3;
+function avatarEl(userId,size,cls){
+    const s=size||36;
+    return `<img class="${cls||'av'}" 
+        src="/api/avatar?id=${userId}" 
+        width="${s}" height="${s}"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        style="border-radius:50%;object-fit:cover;">`;
+}
 
-  return `
-<div class="card" onclick="openDetail('${key}')">
-  <div class="card-accent"></div>
-  <div class="card-hdr">
-    <div class="ident">
-      <div class="av">${user.charAt(0).toUpperCase()}</div>
-      <div>
-        <div class="uname">${user}${on?'<span class="online-dot"></span>':""}</div>
-        <div class="badges">
-          <span class="badge ${SEA_CLS[sea]||"b-s1"}">${SEA[sea]||"Sea "+sea}</span>
-          <span class="badge b-race">👤 ${race}</span>
-        </div>
-      </div>
+let allAcc=[], activeFilter='all', sortMode='time', searchQ='';
+
+function setFilter(f,btn){
+    activeFilter=f;
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    applyFilter();
+}
+
+function toggleSort(){
+    sortMode = sortMode==='time'?'level':'time';
+    document.getElementById('sort-lbl').textContent = sortMode==='time'?'Last update':'Level';
+    applyFilter();
+}
+
+function applyFilter(){
+    searchQ = document.getElementById('search').value.toLowerCase();
+    let list = allAcc.filter(a=>{
+        const on = isOnline(a.last_updated);
+        const sea = g(a,'sea','Sea');
+        if(activeFilter==='online'  && !on) return false;
+        if(activeFilter==='offline' && on)  return false;
+        if(activeFilter==='sea1'    && sea!==1) return false;
+        if(activeFilter==='sea2'    && sea!==2) return false;
+        if(activeFilter==='sea3'    && sea!==3) return false;
+        if(searchQ){
+            const u=(gs(a,'username','Username')+gs(a,'display_name','displayName')+String(a.user_id||'')).toLowerCase();
+            if(!u.includes(searchQ))return false;
+        }
+        return true;
+    });
+    if(sortMode==='level') list.sort((a,b)=>getLevel(b)-getLevel(a));
+    else list.sort((a,b)=>new Date(b.last_updated||0)-new Date(a.last_updated||0));
+    renderGrid(list);
+}
+
+function renderGrid(list){
+    const g=document.getElementById('grid');
+    const on=allAcc.filter(a=>isOnline(a.last_updated)).length;
+    document.getElementById('h-total').textContent=allAcc.length;
+    document.getElementById('h-online').textContent=on;
+    document.getElementById('h-offline').textContent=allAcc.length-on;
+
+    if(!list.length){
+        g.innerHTML='<div class="empty">Không có account nào phù hợp.</div>';
+        return;
+    }
+    g.innerHTML=list.map(card).join('');
+}
+
+function card(acc){
+    const user = gs(acc,'username','Username')||'???';
+    const dname= gs(acc,'display_name','displayName')||user;
+    const uid  = gs(acc,'user_id','userId');
+    const lv   = getLevel(acc);
+    const beli = g(acc,'beli','Beli');
+    const frag = g(acc,'fragments','Fragments');
+    const sea  = g(acc,'sea','Sea')||1;
+    const race = gs(acc,'race','Race')||'—';
+    const fruit= gs(acc,'devil_fruit','DevilFruit')||'None';
+    const sword= gs(acc,'sword_name','SwordType','CurrentSword')||(acc.raw_dump&&gs(acc.raw_dump,'SwordType','CurrentSword'))||'—';
+    const on   = isOnline(acc.last_updated);
+    const ut   = uptime(acc);
+    const key  = esc(acc.account_key||user);
+    const fi   = fruit==='None'||fruit===''?'—':(FRUIT_IC[fruit.toLowerCase().split('-')[0]]||'🍎')+' '+fruit;
+
+    return `<div class="card" onclick="openDetail('${key}')">
+  <div class="ch">
+    <div class="avw">
+      ${uid?avatarEl(uid,36,'av'):''}
+      <div class="av-fb" ${uid?'style="display:none"':''}>${esc(user[0]||'?').toUpperCase()}</div>
+      <div class="avd ${on?'on':'off'}"></div>
     </div>
-    <div class="lv-block">
-      <button class="del-btn" onclick="event.stopPropagation();openDel('${key}','${user}')">🗑️</button>
-      <div class="lv-num">${lv}</div>
-      <div class="lv-lbl">LEVEL</div>
+    <div class="ci">
+      <div class="cu">${esc(user)}</div>
+      <div class="cd">${esc(dname)}</div>
+    </div>
+    <div class="sbadge ${on?'on':'off'}">⬡ ${on?'ONLINE':'OFFLINE'}</div>
+  </div>
+  <div class="hline"></div>
+  <div class="cs">
+    <div>
+      <div class="slbl">📶 Level</div>
+      <div class="sval w">${lv||'—'}</div>
+    </div>
+    <div>
+      <div class="slbl">💰 Beli</div>
+      <div class="sval t">${fmt(beli)}</div>
+    </div>
+    <div>
+      <div class="slbl">💜 Fragments</div>
+      <div class="sval w">${fmt(frag)}</div>
     </div>
   </div>
-  <div class="lv-bar-wrap">
-    <div class="lv-track" title="${lv}/${MAX_LV}">
-      <div class="lv-fill" style="width:${lvPct}%"></div>
+  <div class="hline"></div>
+  <div class="ci2">
+    <div>
+      <div class="il">🍎 Fruit</div>
+      <div class="iv ${fruit==='None'||!fruit?'m':''}">${fi}</div>
+    </div>
+    <div>
+      <div class="il">⚔ Sword</div>
+      <div class="iv ${!sword||sword==='—'?'m':''}">${esc(sword)||'—'}</div>
+    </div>
+    <div>
+      <div class="il">⭕ Race</div>
+      <div class="iv">${esc(race)||'—'}</div>
+    </div>
+    <div>
+      <div class="il">🌊 Sea</div>
+      <div class="iv">${sea===1?'Sea 1':sea===2?'Sea 2':sea===3?'Sea 3':'Sea '+sea}</div>
     </div>
   </div>
-  <div class="qrow">
-    <span class="fi">${fi(fruit)}</span>
-    <span class="fn${fruit==="None"?" fn-none":""}">${esc(fruit)}</span>
+  <div class="hline"></div>
+  <div class="cf">
+    <div class="upd">⏱ Updated ${ago(acc.last_updated)}</div>
+    <div class="upt ${on&&ut?'live':''}">${on&&ut?ut:'Not active'}</div>
   </div>
-  <div class="cur-mini">
-    <div class="cm"><div class="cm-v" style="color:var(--yel)">${fmt(beli)}</div><div class="cm-l">💰 Beli</div></div>
-    <div class="cm"><div class="cm-v" style="color:var(--acc)">${fmt(frag)}</div><div class="cm-l">💜 Fragment</div></div>
-    <div class="cm"><div class="cm-v" style="color:${currency3rd?"var(--blu)":"var(--grn)"}">${fmt(currency3rd?honor:bnty)}</div><div class="cm-l">${currency3rd?"⚔️ Honor":"🏴 Bounty"}</div></div>
-  </div>
-  <div class="tap-hint">👆 Nhấn để xem chi tiết • 🕐 ${ago(acc.last_updated)}</div>
 </div>`;
 }
 
-// ── DETAIL MODAL ──
-function openDetail(key) {
-  const acc = allAccounts.find(a=>(a.account_key||"")===key);
-  if(!acc) return;
+function openDetail(key){
+    const acc=allAcc.find(a=>(a.account_key||'')=== key);
+    if(!acc)return;
 
-  const user   = esc(gs(acc,"username","Username")||"???");
-  const dname  = esc(gs(acc,"display_name","displayName")||user);
-  const lv     = getLevel(acc);
-  const sea    = g(acc,"sea","Sea")||1;
-  const race   = esc(gs(acc,"race","Race")||"Human");
-  const fruit  = gs(acc,"devil_fruit","DevilFruit","FruitName")||"None";
-  const beli   = g(acc,"beli","Beli");
-  const frag   = g(acc,"fragments","Fragments");
-  const bnty   = g(acc,"bounty","Bounty");
-  const honor  = g(acc,"honor","Honor");
-  const on     = isOnline(acc.last_updated);
-  const c3rd   = sea>=3;
-  const lvPct  = Math.min((lv/MAX_LV)*100,100).toFixed(1);
+    const user  = gs(acc,'username','Username')||'???';
+    const dname = gs(acc,'display_name','displayName')||user;
+    const uid   = gs(acc,'user_id','userId');
+    const lv    = getLevel(acc);
+    const beli  = g(acc,'beli','Beli');
+    const frag  = g(acc,'fragments','Fragments');
+    const sea   = g(acc,'sea','Sea')||1;
+    const race  = gs(acc,'race','Race')||'—';
+    const fruit = gs(acc,'devil_fruit','DevilFruit')||'None';
+    const style = gs(acc,'fighting_style','FightingStyle')||'—';
+    const sword = gs(acc,'sword_name','SwordType','CurrentSword')||'—';
+    const gun   = gs(acc,'GunName','CurrentGun')||'—';
+    const on    = isOnline(acc.last_updated);
+    const ut    = uptime(acc);
+    const placeId=gs(acc,'place_id')||'—';
+    const jobId  =gs(acc,'job_id')||'—';
+    const seaStr = sea===1?'Sea 1':sea===2?'Sea 2':sea===3?'Sea 3':'Sea '+sea;
 
-  const stats = {
-    MELEE:   g(acc,"stat_melee","Melee"),
-    DEFENSE: g(acc,"stat_defense","Defense"),
-    SWORD:   g(acc,"stat_sword","Sword"),
-    GUN:     g(acc,"stat_gun","Gun"),
-    FRUIT:   g(acc,"stat_fruit","Fruit"),
-  };
-  const totalSt = Object.values(stats).reduce((a,b)=>a+b,0)||1;
-  const stCls = {MELEE:"f-mel",DEFENSE:"f-def",SWORD:"f-swd",GUN:"f-gun",FRUIT:"f-fru"};
-  const statRows = Object.entries(stats).map(([n,v])=>`
-    <div class="srow">
-      <span class="sn">${n}</span>
-      <div class="track"><div class="fill ${stCls[n]}" style="width:${Math.round(v/totalSt*100)}%"></div></div>
-      <span class="sv">${v}</span>
-    </div>`).join("");
+    // Online time
+    let onlineTime='—';
+    if(on&&acc.session_start){
+        const s=Math.floor((Date.now()-new Date(acc.session_start).getTime())/1000);
+        const m=Math.floor(s/60);
+        onlineTime=m>0?`${m}m ${s%60}s`:`${s}s`;
+    }
 
-  // Raw dump — loại bỏ trùng và field lớn
-  const skip = new Set(["raw_dump","account_key","last_updated","username","display_name",
-    "user_id","level","beli","bounty","honor","fragments","stat_melee","stat_defense",
-    "stat_sword","stat_gun","stat_fruit","race","devil_fruit","sea"]);
-  const raw = acc.raw_dump||{};
-  const entries = Object.entries(raw)
-    .filter(([k,v])=>!skip.has(k)&&typeof v!=="object"&&v!==null&&v!==undefined)
-    .sort((a,b)=>{
-      const ta=typeof a[1],tb=typeof b[1];
-      if(ta===tb)return a[0].localeCompare(b[0]);
-      if(ta==="number")return -1; if(tb==="number")return 1; return 0;
-    });
+    // Important items from raw_dump
+    const raw=acc.raw_dump||{};
+    const importantKeys=['DevilFruit','FruitName','SwordType','CurrentSword','FightingStyle','Style',
+        'Kairun','Godhuman','Saber','Yama','Tushita','Pole','Bisento','Dragon','Rengoku'];
+    const items=[];
+    if(fruit&&fruit!=='None'&&fruit!=='')items.push({name:'Devil Fruit: '+fruit,qty:''});
+    if(style&&style!=='—'&&style!=='')items.push({name:'Fighting Style: '+style,qty:''});
+    if(sword&&sword!=='—'&&sword!=='')items.push({name:'Sword: '+sword,qty:''});
+    // Scan raw for numeric > 0 with known item names
+    for(const[k,v]of Object.entries(raw)){
+        if(typeof v==='number'&&v>0&&v<10000){
+            const kl=k.toLowerCase();
+            if(kl.includes('saber')||kl.includes('yama')||kl.includes('tushita')||
+               kl.includes('pole')||kl.includes('bisento')||kl.includes('rengoku')||
+               kl.includes('kairun')||kl.includes('task')){
+                items.push({name:k,qty:String(v)});
+            }
+        }
+        if(typeof v==='boolean'&&v){
+            const kl=k.toLowerCase();
+            if(kl.includes('kairun')||kl.includes('task')||kl.includes('godhuman'))
+                items.push({name:k,qty:'✓'});
+        }
+    }
 
-  const rawRows = entries.map(([k,v])=>{
-    let col="var(--txt)", disp=String(v);
-    if(typeof v==="number"){col="var(--acc)"; disp=Number(v).toLocaleString("vi-VN");}
-    else if(typeof v==="boolean"){col=v?"var(--grn)":"var(--txt-m)"; disp=v?"✅ Có":"❌ Không";}
-    else if(v==="")disp="—";
-    return `<div class="raw-row"><span class="raw-key">${esc(k)}</span><span class="raw-val" style="color:${col}">${esc(disp)}</span></div>`;
-  }).join("");
+    const itemsHtml = items.length
+        ? `<div class="itlist">${items.map(i=>`<div class="itrow"><span class="itn">${esc(i.name)}</span>${i.qty?`<span class="itq">${esc(i.qty)}</span>`:''}</div>`).join('')}</div>`
+        : `<div class="itempty">No items reported</div>`;
 
-  document.getElementById("detail-content").innerHTML = `
-    <div class="detail-hdr">
-      <div class="detail-ident">
-        <div class="detail-av">${user.charAt(0).toUpperCase()}</div>
-        <div>
-          <div class="detail-uname">${user}${on?'<span class="online-dot"></span>':""}</div>
-          <div class="detail-sub">${dname!==user?dname+" · ":""}${SEA[sea]||"Sea "+sea} · ${race}</div>
-          <div style="margin-top:6px;font-size:18px">${fi(fruit)} <span style="font-size:13px;font-weight:600">${esc(fruit)}</span></div>
-        </div>
+    const truncate = s => s.length>22?s.slice(0,22)+'...':s;
+
+    document.getElementById('det').innerHTML=`
+<div style="position:relative;">
+<button class="dcl" onclick="closeDetail()">✕</button>
+<div class="dt">
+  <div class="dpl">Account Profile</div>
+  <div class="dident">
+    <div class="daw">
+      ${uid?`<img class="dav" src="/api/avatar?id=${uid}" width="64" height="64"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:'' }
+      <div class="dav-fb" ${uid?'style="display:none"':''}>${esc(user[0]||'?').toUpperCase()}</div>
+      <div class="dad ${on?'on':'off'}"></div>
+    </div>
+    <div>
+      <div class="dun">${esc(user)}</div>
+      <div class="ddn">${esc(dname)}</div>
+      <div class="sbadge ${on?'on':'off'}" style="display:inline-flex">⬡ ${on?'ONLINE':'OFFLINE'}</div>
+    </div>
+  </div>
+  <div class="dboxes">
+    <div class="dbox"><div class="dbl">Level</div><div class="dbv">${lv||'—'}</div></div>
+    <div class="dbox"><div class="dbl">Beli</div><div class="dbv" style="color:var(--teal)">${fmtFull(beli)}</div></div>
+    <div class="dbox"><div class="dbl">Fragments</div><div class="dbv">${fmtFull(frag)}</div></div>
+    <div class="dbox"><div class="dbl">Online time</div><div class="dbv" style="font-size:13px">${onlineTime}</div></div>
+  </div>
+</div>
+<div class="dsec">
+  <div class="d2c">
+    <div>
+      <div class="dst">Identity &amp; Location</div>
+      <div class="drow">
+        <span class="drk"># User ID</span>
+        <span class="drv">${esc(uid||'—')}<button class="cpbtn" onclick="cp('${esc(uid||'')}')">⧉</button></span>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
-        <button class="close-btn" onclick="closeDetail()">✕</button>
-        <div class="detail-lv"><div class="detail-lv-num">${lv}</div><div class="detail-lv-lbl">LEVEL</div></div>
+      <div class="drow">
+        <span class="drk">👤 Username</span>
+        <span class="drv">${esc(user)}<button class="cpbtn" onclick="cp('${esc(user)}')">⧉</button></span>
+      </div>
+      <div class="drow">
+        <span class="drk">📍 Place ID</span>
+        <span class="drv">${esc(placeId)}<button class="cpbtn" onclick="cp('${esc(placeId)}')">⧉</button></span>
+      </div>
+      <div class="drow">
+        <span class="drk">📋 Job ID</span>
+        <span class="drv" title="${esc(jobId)}">${esc(truncate(jobId))}<button class="cpbtn" onclick="cp('${esc(jobId)}')">⧉</button></span>
+      </div>
+      <div class="drow">
+        <span class="drk">Current sea</span>
+        <span class="drv">${esc(seaStr)}</span>
       </div>
     </div>
-
-    <div class="dsec">
-      <div class="dsec-t">📊 Stat Allocation — tổng ${totalSt===1?0:totalSt} điểm</div>
-      ${statRows}
-      <div style="height:6px;background:var(--bg3);border-radius:3px;margin-top:10px;overflow:hidden">
-        <div style="height:100%;width:${lvPct}%;background:linear-gradient(90deg,var(--pur),var(--acc));border-radius:3px"></div>
-      </div>
-      <div style="font-size:10px;color:var(--txt-m);margin-top:4px">Level ${lv} / ${MAX_LV} (${lvPct}%)</div>
+    <div>
+      <div class="dst">Loadout</div>
+      <div class="drow"><span class="drk">Race</span><span class="drv ${!race||race==='—'?'m':''}">${esc(race)}</span></div>
+      <div class="drow"><span class="drk">Fighting style</span><span class="drv ${!style||style==='—'?'m':''}">${esc(style)}</span></div>
+      <div class="drow"><span class="drk">Fruit</span><span class="drv ${fruit==='None'||!fruit?'m':''}">${esc(fruit==='None'||!fruit?'—':fruit)}</span></div>
+      <div class="drow"><span class="drk">Sword</span><span class="drv ${!sword||sword==='—'?'m':''}">${esc(sword)}</span></div>
+      <div class="drow"><span class="drk">Gun</span><span class="drv ${!gun||gun==='—'?'m':''}">${esc(gun)}</span></div>
     </div>
+  </div>
+</div>
+<div class="dsec">
+  <div class="dst">Accessories</div>
+  <div class="itempty">No accessories reported</div>
+</div>
+<div class="dsec">
+  <div class="dst">Important Items</div>
+  ${itemsHtml}
+</div>
+<div class="dts">
+  <div class="tsi">First seen: <span>${tsFormat(acc.first_seen)}</span></div>
+  <div class="tsi">Last seen: <span>${tsFormat(acc.last_updated)}</span></div>
+  <div class="tsi">Updated: <span>${tsFormat(acc.last_updated)}</span></div>
+</div>
+</div>`;
 
-    <div class="dsec">
-      <div class="dsec-t">💰 Tài Nguyên</div>
-      <div class="cur-grid">
-        <div class="ci"><div class="ca" style="color:var(--yel)">${fmt(beli)}</div><div class="cl">💰 Beli</div></div>
-        <div class="ci"><div class="ca" style="color:var(--acc)">${fmt(frag)}</div><div class="cl">💜 Fragment</div></div>
-        <div class="ci"><div class="ca" style="color:${c3rd?"var(--blu)":"var(--grn)"}">${fmt(c3rd?honor:bnty)}</div><div class="cl">${c3rd?"⚔️ Honor":"🏴 Bounty"}</div></div>
-      </div>
-    </div>
-
-    ${entries.length>0?`
-    <div class="dsec">
-      <div class="dsec-t">📦 Tất Cả Data (${entries.length} mục)</div>
-      <div class="raw-grid">${rawRows}</div>
-    </div>`:""}
-
-    <div class="dsec" style="font-size:11px;color:var(--txt-m);text-align:center">
-      🕐 Cập nhật: ${ago(acc.last_updated)}
-    </div>`;
-
-  document.getElementById("detail-modal").classList.add("open");
+    document.getElementById('ov').classList.add('open');
 }
 
-function closeDetail() { document.getElementById("detail-modal").classList.remove("open"); }
+function closeDetail(){document.getElementById('ov').classList.remove('open');}
 
-// ── DELETE ──
-function openDel(key,name){_delKey=key;document.getElementById("del-name").textContent=name;document.getElementById("del-key").value="";document.getElementById("del-modal").classList.add("open");}
-function closeDel(){document.getElementById("del-modal").classList.remove("open");_delKey=null;}
-async function doDelete(){
-  const k=document.getElementById("del-key").value.trim();
-  if(!k){toast("⚠️ Nhập API Secret");return;}
-  try{
-    const r=await fetch("/api/delete",{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({key:k,account_key:_delKey})});
-    if(r.ok){toast("✅ Đã xóa");closeDel();load();}
-    else{const e=await r.json();toast("❌ "+(e.error||"Lỗi"));}
-  }catch{toast("❌ Lỗi kết nối");}
+async function cp(text){
+    try{await navigator.clipboard.writeText(text);toast('Đã copy!');}
+    catch{toast('Copy thất bại');}
 }
 
-// ── RENDER ──
-function render(accounts){
-  allAccounts=accounts;
-  document.getElementById("cnt-lbl").textContent=accounts.length+" acc";
-  document.getElementById("s-total").textContent=accounts.length;
-  document.getElementById("s-online").textContent=accounts.filter(a=>isOnline(a.last_updated)).length;
-  document.getElementById("s-maxlv").textContent=accounts.reduce((m,a)=>Math.max(m,getLevel(a)),0);
-  document.getElementById("s-beli").textContent=fmt(accounts.reduce((s,a)=>s+g(a,"beli","Beli"),0));
-  document.getElementById("s-frag").textContent=fmt(accounts.reduce((s,a)=>s+g(a,"fragments","Fragments"),0));
-
-  const c=document.getElementById("container");
-  if(!accounts.length){
-    c.innerHTML=`<div class="empty"><div class="empty-ic">🍎</div><div class="empty-t">Chưa có account nào</div><p>Chạy Lua script trong game để bắt đầu tracking.</p></div>`;
-    return;
-  }
-  c.innerHTML=`<div class="grid">${accounts.map(card).join("")}</div>`;
+function toast(msg){
+    const t=document.getElementById('toast');
+    t.textContent=msg;t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2000);
 }
 
-// ── FETCH ──
 async function load(){
-  try{
-    const r=await fetch("/api/accounts");
-    if(!r.ok)throw new Error(r.status);
-    render(await r.json());
-    document.getElementById("lastSync").textContent="Cập nhật: "+new Date().toLocaleTimeString("vi-VN");
-  }catch{document.getElementById("lastSync").textContent="❌ Lỗi kết nối";}
+    try{
+        const r=await fetch('/api/accounts');
+        if(!r.ok)throw new Error(r.status);
+        allAcc=await r.json();
+        applyFilter();
+    }catch(e){
+        document.getElementById('grid').innerHTML='<div class="empty">❌ Lỗi kết nối API</div>';
+    }
 }
-
-function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),3000);}
 
 load();
 setInterval(load,30000);
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeDetail();closeDel();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
 </script>
 </body>
 </html>
